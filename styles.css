@@ -42,6 +42,13 @@
   padding: 0;
 }
 
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -53,7 +60,6 @@ body {
   background: #f8f7ff;
   color: #1a1a2e;
   transition: background var(--transition-med), color var(--transition-med);
-  overflow-x: hidden;
 }
 
 body.dark {
@@ -139,6 +145,17 @@ h5 {
 }
 
 /* ---- Animated Gradient Orbs ---- */
+.hero-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .orb {
   position: absolute;
   border-radius: 50%;
