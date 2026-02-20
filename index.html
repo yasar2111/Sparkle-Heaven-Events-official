@@ -29,814 +29,826 @@
 </head>
 
 <body class="bg-hero-gradient min-h-screen">
+  <div class="overflow-x-hidden w-full max-w-[100vw] min-h-screen flex flex-col">
 
-  <!-- ==============================
+    <!-- ==============================
      NAVBAR
      ============================== -->
-  <nav id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center gap-2 text-decoration-none">
-        <div
-          class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">✦
+    <nav id="navbar">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+          <div
+            class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">
+            ✦
+          </div>
+          <span class="text-xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+        </a>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html" class="btn btn-ghost btn-sm">Home</a>
+          <a href="about.html" class="btn btn-ghost btn-sm">About Us</a>
+          <a href="#services" class="btn btn-ghost btn-sm">Services</a>
+
+          <a href="#contact" class="btn btn-ghost btn-sm">Contact Us</a>
         </div>
-        <span class="text-xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
-      </a>
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-1">
-        <a href="index.html" class="btn btn-ghost btn-sm">Home</a>
-        <a href="about.html" class="btn btn-ghost btn-sm">About Us</a>
-        <a href="#services" class="btn btn-ghost btn-sm">Services</a>
+        <!-- Right Controls -->
+        <div class="flex items-center gap-3">
+          <button data-dark-toggle onclick="toggleDark()" class="dark-toggle" title="Toggle dark mode">
+            <span data-dark-icon>🌙</span>
+          </button>
 
-        <a href="#contact" class="btn btn-ghost btn-sm">Contact Us</a>
+          <button id="menu-open"
+            class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/60 dark:bg-white/10 backdrop-blur"
+            aria-label="Open menu">
+            <svg width="20" height="16" viewBox="0 0 20 16" fill="currentColor">
+              <rect y="0" width="20" height="2" rx="1" />
+              <rect y="7" width="20" height="2" rx="1" />
+              <rect y="14" width="20" height="2" rx="1" />
+            </svg>
+          </button>
+        </div>
       </div>
-      <!-- Right Controls -->
-      <div class="flex items-center gap-3">
-        <button data-dark-toggle onclick="toggleDark()" class="dark-toggle" title="Toggle dark mode">
-          <span data-dark-icon>🌙</span>
-        </button>
+    </nav>
 
-        <button id="menu-open"
-          class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/60 dark:bg-white/10 backdrop-blur"
-          aria-label="Open menu">
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="currentColor">
-            <rect y="0" width="20" height="2" rx="1" />
-            <rect y="7" width="20" height="2" rx="1" />
-            <rect y="14" width="20" height="2" rx="1" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+      <div id="mobile-menu-backdrop"></div>
+      <div id="mobile-menu-panel" class="flex flex-col pt-8">
+        <div class="flex items-center justify-between mb-8">
+          <span class="text-xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+          <button id="menu-close"
+            class="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-white/10">✕</button>
+        </div>
+        <div class="flex flex-col gap-1">
+          <a href="index.html" class="sidebar-link">🏠 Home</a>
+          <a href="about.html" class="sidebar-link">👥 About</a>
+          <a href="#services" class="sidebar-link">✨ Services</a>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu">
-    <div id="mobile-menu-backdrop"></div>
-    <div id="mobile-menu-panel" class="flex flex-col pt-8">
-      <div class="flex items-center justify-between mb-8">
-        <span class="text-xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
-        <button id="menu-close"
-          class="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-white/10">✕</button>
-      </div>
-      <div class="flex flex-col gap-1">
-        <a href="index.html" class="sidebar-link">🏠 Home</a>
-        <a href="about.html" class="sidebar-link">👥 About</a>
-        <a href="#services" class="sidebar-link">✨ Services</a>
+          <a href="#contact" class="sidebar-link">📞 Contact Us</a>
+        </div>
+        <div class="mt-auto pt-8 flex flex-col gap-3">
 
-        <a href="#contact" class="sidebar-link">📞 Contact Us</a>
-      </div>
-      <div class="mt-auto pt-8 flex flex-col gap-3">
-
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ==============================
+    <!-- ==============================
      HERO SECTION
      ============================== -->
-  <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-    <!-- BG Orbs -->
-    <div class="hero-blob">
-      <div class="orb orb-purple" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
-      <div class="orb orb-pink" style="width:400px;height:400px;bottom:-80px;left:-80px;"></div>
-      <div class="orb orb-cyan" style="width:300px;height:300px;top:40%;left:35%;"></div>
-    </div>
+    <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+      <!-- BG Orbs -->
+      <div class="hero-blob">
+        <div class="orb orb-purple" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
+        <div class="orb orb-pink" style="width:400px;height:400px;bottom:-80px;left:-80px;"></div>
+        <div class="orb orb-cyan" style="width:300px;height:300px;top:40%;left:35%;"></div>
+      </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Text -->
-        <div>
-          <div class="section-label animate-fade-up">
-            ✨ Your Trusted Partner for Flawless Events
-          </div>
-          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 animate-fade-up"
-            style="animation-delay:0.1s;font-family:'Poppins',sans-serif;">
-            Top Event<br />
-            <span class="gradient-text">Management</span><br />
-            <span style="color:#1a1a2e" class="dark:text-white">Company</span>
-          </h1>
-          <p class="section-sub mb-8 animate-fade-up" style="animation-delay:0.2s;">
-            Sparkle Heaven is a Event Management Company Specialising in planning & organising from start to finish.
-            From
-            dreamy weddings to flawless corporate
-            events, we bring your vision to life.
-          </p>
-          <div class="flex flex-wrap gap-4 mb-10 animate-fade-up" style="animation-delay:0.3s;">
-            <a href="#services" class="btn btn-primary btn-lg">Explore Services 🚀</a>
-            <a href="#contact" class="btn btn-secondary btn-lg">Contact Us →</a>
-          </div>
-          <!-- Stats Row -->
-          <div class="flex flex-wrap gap-8 animate-fade-up" style="animation-delay:0.4s;">
-            <div>
-              <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">1K+</div>
-              <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Happy Clients</div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Text -->
+          <div>
+            <div class="section-label animate-fade-up">
+              ✨ Your Trusted Partner for Flawless Events
             </div>
-            <div class="w-px bg-gray-200 dark:bg-white/10 self-stretch"></div>
-            <div>
-              <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">2K+</div>
-              <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Events Planned</div>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 animate-fade-up"
+              style="animation-delay:0.1s;font-family:'Poppins',sans-serif;">
+              Top Event<br />
+              <span class="gradient-text">Management</span><br />
+              <span style="color:#1a1a2e" class="dark:text-white">Company</span>
+            </h1>
+            <p class="section-sub mb-8 animate-fade-up" style="animation-delay:0.2s;">
+              Sparkle Heaven is a Event Management Company Specialising in planning & organising from start to finish.
+              From
+              dreamy weddings to flawless corporate
+              events, we bring your vision to life.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-10 animate-fade-up" style="animation-delay:0.3s;">
+              <a href="#services" class="btn btn-primary btn-lg">Explore Services 🚀</a>
+              <a href="#contact" class="btn btn-secondary btn-lg">Contact Us →</a>
             </div>
-            <div class="w-px bg-gray-200 dark:bg-white/10 self-stretch"></div>
-            <div>
-              <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">4.9★</div>
-              <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Average Rating</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Visual — Single Slide Carousel -->
-        <div class="relative animate-scale-up" style="animation-delay:0.2s;">
-          <div class="relative z-10">
-            <div class="hero-slider rounded-3xl overflow-hidden shadow-2xl" style="height:420px;">
-              <div class="hero-slider-track" id="hero-slider-track">
-                <img src="hero-images/hero-1.jpeg" alt="Event" class="hero-slide" fetchpriority="high" />
-                <img src="hero-images/hero-2.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-3.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-4.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-5.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-6.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-7.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-8.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
-                <img src="hero-images/hero-9.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+            <!-- Stats Row -->
+            <div class="flex flex-wrap gap-8 animate-fade-up" style="animation-delay:0.4s;">
+              <div>
+                <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">1K+</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Happy Clients</div>
               </div>
-              <!-- Dots -->
-              <div class="hero-slider-dots" id="hero-slider-dots"></div>
+              <div class="w-px bg-gray-200 dark:bg-white/10 self-stretch"></div>
+              <div>
+                <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">2K+</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Events Planned</div>
+              </div>
+              <div class="w-px bg-gray-200 dark:bg-white/10 self-stretch"></div>
+              <div>
+                <div class="text-3xl font-black gradient-text" style="font-family:'Poppins',sans-serif;">4.9★</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Average Rating</div>
+              </div>
             </div>
           </div>
-          <!-- Decorative rings -->
-          <div
-            class="absolute -inset-6 rounded-3xl border-2 border-purple-200/30 dark:border-purple-500/10 pointer-events-none">
+
+          <!-- Hero Visual — Single Slide Carousel -->
+          <div class="relative animate-scale-up" style="animation-delay:0.2s;">
+            <div class="relative z-10">
+              <div class="hero-slider rounded-3xl overflow-hidden shadow-2xl" style="height:420px;">
+                <div class="hero-slider-track" id="hero-slider-track">
+                  <img src="hero-images/hero-1.jpeg" alt="Event" class="hero-slide" fetchpriority="high" />
+                  <img src="hero-images/hero-2.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-3.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-4.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-5.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-6.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-7.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-8.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                  <img src="hero-images/hero-9.jpeg" alt="Event" class="hero-slide" loading="lazy" decoding="async" />
+                </div>
+                <!-- Dots -->
+                <div class="hero-slider-dots" id="hero-slider-dots"></div>
+              </div>
+            </div>
+            <!-- Decorative rings -->
+            <div
+              class="absolute -inset-6 rounded-3xl border-2 border-purple-200/30 dark:border-purple-500/10 pointer-events-none">
+            </div>
+            <div class="absolute -inset-12 rounded-3xl border border-pink-200/20 pointer-events-none"></div>
           </div>
-          <div class="absolute -inset-12 rounded-3xl border border-pink-200/20 pointer-events-none"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ==============================
+    <!-- ==============================
      SERVICES — Vertical Scrollable Tabs
      ============================== -->
-  <section id="services" class="py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <div class="section-label mx-auto w-fit">✨ Our Services</div>
-        <h2 class="section-heading">Comprehensive Event<br /><span class="gradient-text">Planning &amp;
-            Management</span></h2>
-        <p class="section-sub mx-auto text-center">From concept to execution, we deliver extraordinary experiences
-          for every occasion.</p>
-      </div>
-
-      <!-- Tabs Layout -->
-      <div class="flex flex-col lg:flex-row gap-8 items-start">
-        <!-- Left: Vertical Scrollable Tabs -->
-        <div
-          class="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto pb-2 lg:pb-0 lg:pr-2 lg:min-w-[320px] lg:max-w-[320px] flex-shrink-0"
-          id="service-tabs" style="scrollbar-width:thin;">
-          <button class="service-tab active" data-tab="wedding" onclick="switchServiceTab('wedding')">
-            <span class="service-tab-icon">💒</span>
-            <span class="service-tab-label">Wedding Ceremony</span>
-            <span class="service-tab-arrow">➤</span>
-          </button>
-          <button class="service-tab" data-tab="babyshower" onclick="switchServiceTab('babyshower')">
-            <span class="service-tab-icon">🍼</span>
-            <span class="service-tab-label">Baby Shower Ceremony</span>
-            <span class="service-tab-arrow">➤</span>
-          </button>
-          <button class="service-tab" data-tab="birthday" onclick="switchServiceTab('birthday')">
-            <span class="service-tab-icon">🎂</span>
-            <span class="service-tab-label">Birthday Party · Surprise Party</span>
-            <span class="service-tab-arrow">➤</span>
-          </button>
-          <button class="service-tab" data-tab="corporate" onclick="switchServiceTab('corporate')">
-            <span class="service-tab-icon">💼</span>
-            <span class="service-tab-label">Inauguration · Corporate Event</span>
-            <span class="service-tab-arrow">➤</span>
-          </button>
+    <section id="services" class="py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <div class="section-label mx-auto w-fit">✨ Our Services</div>
+          <h2 class="section-heading">Comprehensive Event<br /><span class="gradient-text">Planning &amp;
+              Management</span></h2>
+          <p class="section-sub mx-auto text-center">From concept to execution, we deliver extraordinary experiences
+            for every occasion.</p>
         </div>
 
-        <!-- Right: Tab Content Panels -->
-        <div class="flex-1 relative min-h-[420px]">
-          <!-- Wedding -->
-          <div class="service-panel active" id="panel-wedding">
-            <div class="card-glass p-8">
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-16 h-16 rounded-2xl bg-primary-gradient flex items-center justify-center text-3xl flex-shrink-0">
-                  💒</div>
-                <div>
-                  <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Wedding
-                    Ceremony</h3>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Complete wedding planning &amp;
-                    management</p>
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">From elegant mandap decor to
-                flawless reception arrangements, we transform your dream wedding into a breathtaking
-                reality. Our expert team handles every detail so you can enjoy every magical moment.</p>
-              <h4 class="font-bold text-sm uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-4">
-                Services we offer:</h4>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Stage Decoration</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Bridal Makeup</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Photography &amp; Videography</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Catering Service</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Garlands</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Chendamelam &amp; Dhol</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Lightings &amp; Sounds</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-purple-500">➤</span> Welcome Girls &amp; Dancers</div>
-              </div>
-              <a href="#contact" class="btn btn-primary mt-6 inline-flex">Book Wedding Consultation →</a>
-            </div>
+        <!-- Tabs Layout -->
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <!-- Left: Vertical Scrollable Tabs -->
+          <div
+            class="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible lg:overflow-y-auto pb-2 lg:pb-0 lg:pr-2 lg:min-w-[320px] lg:max-w-[320px] flex-shrink-0"
+            id="service-tabs" style="scrollbar-width:thin;">
+            <button class="service-tab active" data-tab="wedding" onclick="switchServiceTab('wedding')">
+              <span class="service-tab-icon">💒</span>
+              <span class="service-tab-label">Wedding Ceremony</span>
+              <span class="service-tab-arrow">➤</span>
+            </button>
+            <button class="service-tab" data-tab="babyshower" onclick="switchServiceTab('babyshower')">
+              <span class="service-tab-icon">🍼</span>
+              <span class="service-tab-label">Baby Shower Ceremony</span>
+              <span class="service-tab-arrow">➤</span>
+            </button>
+            <button class="service-tab" data-tab="birthday" onclick="switchServiceTab('birthday')">
+              <span class="service-tab-icon">🎂</span>
+              <span class="service-tab-label">Birthday Party · Surprise Party</span>
+              <span class="service-tab-arrow">➤</span>
+            </button>
+            <button class="service-tab" data-tab="corporate" onclick="switchServiceTab('corporate')">
+              <span class="service-tab-icon">💼</span>
+              <span class="service-tab-label">Inauguration · Corporate Event</span>
+              <span class="service-tab-arrow">➤</span>
+            </button>
           </div>
-          <!-- Baby Shower -->
-          <div class="service-panel" id="panel-babyshower">
-            <div class="card-glass p-8">
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-3xl flex-shrink-0">
-                  🍼</div>
-                <div>
-                  <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Baby Shower
-                    Ceremony</h3>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Heartwarming celebrations for
-                    your little one</p>
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Welcome your bundle of joy with
-                a beautifully orchestrated baby shower. We create enchanting themes, delightful decor, and
-                fun activities that make the celebration truly special.</p>
-              <h4 class="font-bold text-sm uppercase tracking-wider text-pink-600 dark:text-pink-400 mb-4">
-                Services we offer:</h4>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Traditional Thematic Decoration</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Photography &amp; Videography</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Catering Service</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Return Gifts</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Decorative Plates</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-pink-500">➤</span> Ice Cream &amp; Beeda</div>
-              </div>
-              <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Baby Shower →</a>
-            </div>
-          </div>
-          <!-- Birthday -->
-          <div class="service-panel" id="panel-birthday">
-            <div class="card-glass p-8">
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-3xl flex-shrink-0">
-                  🎂</div>
-                <div>
-                  <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Birthday ·
-                    Surprise Party</h3>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Fun-filled celebrations for
-                    every age</p>
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Make every birthday
-                unforgettable! Whether it's a kids' themed party or a jaw-dropping surprise — we bring
-                excitement, decor, entertainment, and delicious food together.</p>
-              <h4 class="font-bold text-sm uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-4">
-                Services we offer:</h4>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Thematic B'day Decoration</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Photography &amp; Videography</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Catering Service</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> DJ &amp; Music</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Lightings &amp; Sounds</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Ice Cream &amp; Popcorn</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-orange-500">➤</span> Return Gifts</div>
-              </div>
-              <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Birthday Party →</a>
-            </div>
-          </div>
-          <!-- Corporate -->
-          <div class="service-panel" id="panel-corporate">
-            <div class="card-glass p-8">
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-3xl flex-shrink-0">
-                  💼</div>
-                <div>
-                  <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Inauguration
-                    · Corporate</h3>
-                  <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Professional events with
-                    flawless execution</p>
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Elevate your corporate events
-                with professional management. From grand inaugurations to conferences — every detail
-                executed with precision and style.</p>
-              <h4 class="font-bold text-sm uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-4">
-                Services we offer:</h4>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Decoration</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Photography &amp; Videography</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Catering Service</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Lightings &amp; Sounds</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Welcome Girls &amp; Dancers</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Chendamelam &amp; Dhol</div>
-                <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
-                    class="text-blue-500">➤</span> Beeda &amp; Refreshments</div>
-              </div>
-              <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Corporate Event →</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Full Services Offering Grid -->
-      <div class="mt-20 reveal">
-        <div class="text-center mb-10">
-          <div class="section-label mx-auto w-fit">🎯 What We Offer</div>
-          <h2 class="section-heading">Our Complete<br /><span class="gradient-text">Service Offerings</span></h2>
+          <!-- Right: Tab Content Panels -->
+          <div class="flex-1 relative min-h-[420px]">
+            <!-- Wedding -->
+            <div class="service-panel active" id="panel-wedding">
+              <div class="card-glass p-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-primary-gradient flex items-center justify-center text-3xl flex-shrink-0">
+                    💒</div>
+                  <div>
+                    <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Wedding
+                      Ceremony</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Complete wedding planning &amp;
+                      management</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">From elegant mandap decor to
+                  flawless reception arrangements, we transform your dream wedding into a breathtaking
+                  reality. Our expert team handles every detail so you can enjoy every magical moment.</p>
+                <h4 class="font-bold text-sm uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-4">
+                  Services we offer:</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Stage Decoration</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Bridal Makeup</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Photography &amp; Videography</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Catering Service</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Garlands</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Chendamelam &amp; Dhol</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Lightings &amp; Sounds</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-purple-500">➤</span> Welcome Girls &amp; Dancers</div>
+                </div>
+                <a href="#contact" class="btn btn-primary mt-6 inline-flex">Book Wedding Consultation →</a>
+              </div>
+            </div>
+            <!-- Baby Shower -->
+            <div class="service-panel" id="panel-babyshower">
+              <div class="card-glass p-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-3xl flex-shrink-0">
+                    🍼</div>
+                  <div>
+                    <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Baby Shower
+                      Ceremony</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Heartwarming celebrations for
+                      your little one</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Welcome your bundle of joy with
+                  a beautifully orchestrated baby shower. We create enchanting themes, delightful decor, and
+                  fun activities that make the celebration truly special.</p>
+                <h4 class="font-bold text-sm uppercase tracking-wider text-pink-600 dark:text-pink-400 mb-4">
+                  Services we offer:</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Traditional Thematic Decoration</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Photography &amp; Videography</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Catering Service</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Return Gifts</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Decorative Plates</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-pink-500">➤</span> Ice Cream &amp; Beeda</div>
+                </div>
+                <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Baby Shower →</a>
+              </div>
+            </div>
+            <!-- Birthday -->
+            <div class="service-panel" id="panel-birthday">
+              <div class="card-glass p-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-3xl flex-shrink-0">
+                    🎂</div>
+                  <div>
+                    <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">Birthday ·
+                      Surprise Party</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Fun-filled celebrations for
+                      every age</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Make every birthday
+                  unforgettable! Whether it's a kids' themed party or a jaw-dropping surprise — we bring
+                  excitement, decor, entertainment, and delicious food together.</p>
+                <h4 class="font-bold text-sm uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-4">
+                  Services we offer:</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Thematic B'day Decoration</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Photography &amp; Videography</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Catering Service</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> DJ &amp; Music</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Lightings &amp; Sounds</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Ice Cream &amp; Popcorn</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-orange-500">➤</span> Return Gifts</div>
+                </div>
+                <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Birthday Party →</a>
+              </div>
+            </div>
+            <!-- Corporate -->
+            <div class="service-panel" id="panel-corporate">
+              <div class="card-glass p-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-3xl flex-shrink-0">
+                    💼</div>
+                  <div>
+                    <h3 class="text-2xl font-bold dark:text-white" style="font-family:'Poppins',sans-serif;">
+                      Inauguration
+                      · Corporate</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Professional events with
+                      flawless execution</p>
+                  </div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">Elevate your corporate events
+                  with professional management. From grand inaugurations to conferences — every detail
+                  executed with precision and style.</p>
+                <h4 class="font-bold text-sm uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-4">
+                  Services we offer:</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Decoration</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Photography &amp; Videography</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Catering Service</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Lightings &amp; Sounds</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Welcome Girls &amp; Dancers</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Chendamelam &amp; Dhol</div>
+                  <div class="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"><span
+                      class="text-blue-500">➤</span> Beeda &amp; Refreshments</div>
+                </div>
+                <a href="#contact" class="btn btn-primary mt-6 inline-flex">Plan Corporate Event →</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 stagger">
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🍽️</div>
-            <div class="font-semibold text-sm dark:text-white">Catering Service</div>
+
+        <!-- Full Services Offering Grid -->
+        <div class="mt-20 reveal">
+          <div class="text-center mb-10">
+            <div class="section-label mx-auto w-fit">🎯 What We Offer</div>
+            <h2 class="section-heading">Our Complete<br /><span class="gradient-text">Service Offerings</span></h2>
           </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">💄</div>
-            <div class="font-semibold text-sm dark:text-white">Bridal Makeup</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">📸</div>
-            <div class="font-semibold text-sm dark:text-white">Photography &amp; Videography</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🎪</div>
-            <div class="font-semibold text-sm dark:text-white">Stage Decoration</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">💐</div>
-            <div class="font-semibold text-sm dark:text-white">Garlands</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🎈</div>
-            <div class="font-semibold text-sm dark:text-white">Thematic B'day Decoration</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🥁</div>
-            <div class="font-semibold text-sm dark:text-white">Chendamelam</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🪘</div>
-            <div class="font-semibold text-sm dark:text-white">Dhol</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">💡</div>
-            <div class="font-semibold text-sm dark:text-white">Lightings &amp; Sounds</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🎧</div>
-            <div class="font-semibold text-sm dark:text-white">DJ</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🙋‍♀️</div>
-            <div class="font-semibold text-sm dark:text-white">Welcome Girls</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">💃</div>
-            <div class="font-semibold text-sm dark:text-white">Welcome Dancers</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🍽️</div>
-            <div class="font-semibold text-sm dark:text-white">Decorative Plates</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🎁</div>
-            <div class="font-semibold text-sm dark:text-white">Return Gifts</div>
-          </div>
-          <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
-            <div class="text-3xl mb-3">🍦</div>
-            <div class="font-semibold text-sm dark:text-white">Ice Cream, Beeda &amp; Popcorn</div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 stagger">
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🍽️</div>
+              <div class="font-semibold text-sm dark:text-white">Catering Service</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">💄</div>
+              <div class="font-semibold text-sm dark:text-white">Bridal Makeup</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">📸</div>
+              <div class="font-semibold text-sm dark:text-white">Photography &amp; Videography</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🎪</div>
+              <div class="font-semibold text-sm dark:text-white">Stage Decoration</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">💐</div>
+              <div class="font-semibold text-sm dark:text-white">Garlands</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🎈</div>
+              <div class="font-semibold text-sm dark:text-white">Thematic B'day Decoration</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🥁</div>
+              <div class="font-semibold text-sm dark:text-white">Chendamelam</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🪘</div>
+              <div class="font-semibold text-sm dark:text-white">Dhol</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">💡</div>
+              <div class="font-semibold text-sm dark:text-white">Lightings &amp; Sounds</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🎧</div>
+              <div class="font-semibold text-sm dark:text-white">DJ</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🙋‍♀️</div>
+              <div class="font-semibold text-sm dark:text-white">Welcome Girls</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">💃</div>
+              <div class="font-semibold text-sm dark:text-white">Welcome Dancers</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🍽️</div>
+              <div class="font-semibold text-sm dark:text-white">Decorative Plates</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🎁</div>
+              <div class="font-semibold text-sm dark:text-white">Return Gifts</div>
+            </div>
+            <div class="card-glass p-5 text-center group hover:scale-105 transition-transform">
+              <div class="text-3xl mb-3">🍦</div>
+              <div class="font-semibold text-sm dark:text-white">Ice Cream, Beeda &amp; Popcorn</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ==============================
+    </section>
+    <!-- ==============================
      OUR WORKS — Horizontal Carousel
      ============================== -->
-  <section class="py-24 bg-white/40 dark:bg-white/[0.02] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14 reveal">
-        <div class="section-label mx-auto w-fit">🏷️ Portfolio</div>
-        <h2 class="section-heading">Explore Our<br /><span class="gradient-text">Our Works</span></h2>
-      </div>
+    <section class="py-24 bg-white/40 dark:bg-white/[0.02] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+          <div class="section-label mx-auto w-fit">🏷️ Portfolio</div>
+          <h2 class="section-heading">Explore Our<br /><span class="gradient-text">Our Works</span></h2>
+        </div>
 
-      <div class="relative overflow-hidden">
-        <div class="flex gap-5" id="works-track" style="display:flex;gap:20px;">
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-1.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-2.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-3.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-4.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-5.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-6.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-7.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-8.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-9.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-10.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-11.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-12.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-13.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-14.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-15.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-16.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-17.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-18.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-19.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-20.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-21.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-22.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-23.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-24.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-25.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-26.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-27.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-28.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-29.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-30.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-31.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-32.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-33.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-34.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-35.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-36.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-37.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-38.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-39.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-40.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-41.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-42.jpeg" alt="Our Work" loading="lazy" /></div>
-          </div>
-          <div class="works-card card-glass flex-shrink-0" style="width:300px;">
-            <div class="works-card-img"><img src="works/work-43.jpeg" alt="Our Work" loading="lazy" /></div>
+        <div class="relative overflow-hidden">
+          <div class="flex gap-5" id="works-track" style="display:flex;gap:20px;">
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-1.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-2.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-3.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-4.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-5.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-6.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-7.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-8.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-9.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-10.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-11.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-12.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-13.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-14.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-15.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-16.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-17.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-18.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-19.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-20.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-21.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-22.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-23.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-24.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-25.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-26.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-27.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-28.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-29.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-30.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-31.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-32.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-33.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-34.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-35.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-36.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-37.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-38.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-39.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-40.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-41.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-42.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
+            <div class="works-card card-glass flex-shrink-0" style="width:300px;">
+              <div class="works-card-img"><img src="works/work-43.jpeg" alt="Our Work" loading="lazy" /></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Controls -->
-      <div class="flex justify-center items-center gap-4 mt-8">
-        <button id="works-prev"
-          class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">←</button>
-        <div class="flex gap-2" id="works-dots"></div>
-        <button id="works-next"
-          class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">→</button>
+        <!-- Controls -->
+        <div class="flex justify-center items-center gap-4 mt-8">
+          <button id="works-prev"
+            class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">←</button>
+          <div class="flex gap-2" id="works-dots"></div>
+          <button id="works-next"
+            class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">→</button>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- ==============================
+    </section>
+    <!-- ==============================
      TESTIMONIALS
      ============================== -->
-  <section class="py-24 bg-white/40 dark:bg-white/[0.02] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14 reveal">
-        <div class="section-label mx-auto w-fit">💬 Testimonials</div>
-        <h2 class="section-heading">Loved by Event<br /><span class="gradient-text">Planners Worldwide</span></h2>
-      </div>
+    <section class="py-24 bg-white/40 dark:bg-white/[0.02] overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 reveal">
+          <div class="section-label mx-auto w-fit">💬 Testimonials</div>
+          <h2 class="section-heading">Loved by Event<br /><span class="gradient-text">Planners Worldwide</span></h2>
+        </div>
 
-      <div class="relative overflow-hidden">
-        <div class="flex gap-6" id="testimonial-track" style="display:flex;gap:24px;">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
-            <div class="stars mb-4">★★★★★</div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"SparkleHeaven made our wedding
-              absolutely magical. The planning tools were so intuitive and the vendor suggestions were perfect. 10/10
-              would recommend!"</p>
-            <div class="flex items-center gap-3">
-              <div
-                class="w-11 h-11 rounded-full bg-primary-gradient flex items-center justify-center text-white font-bold">
-                P</div>
-              <div>
-                <div class="font-semibold dark:text-white">Priya Sharma</div>
-                <div class="text-xs text-gray-400">Bride, Mumbai</div>
+        <div class="relative overflow-hidden">
+          <div class="flex gap-6" id="testimonial-track" style="display:flex;gap:24px;">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
+              <div class="stars mb-4">★★★★★</div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"SparkleHeaven made our wedding
+                absolutely magical. The planning tools were so intuitive and the vendor suggestions were perfect. 10/10
+                would recommend!"</p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-11 h-11 rounded-full bg-primary-gradient flex items-center justify-center text-white font-bold">
+                  P</div>
+                <div>
+                  <div class="font-semibold dark:text-white">Priya Sharma</div>
+                  <div class="text-xs text-gray-400">Bride, Mumbai</div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
-            <div class="stars mb-4">★★★★★</div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"We used SparkleHeaven for our
-              annual corporate summit. The dashboard analytics gave us real-time insights. Our team saved 60+ hours of
-              planning time!"</p>
-            <div class="flex items-center gap-3">
-              <div
-                class="w-11 h-11 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold">
-                R</div>
-              <div>
-                <div class="font-semibold dark:text-white">Rajesh Kumar</div>
-                <div class="text-xs text-gray-400">HR Director, Bangalore</div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
+              <div class="stars mb-4">★★★★★</div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"We used SparkleHeaven for our
+                annual corporate summit. The dashboard analytics gave us real-time insights. Our team saved 60+ hours of
+                planning time!"</p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-11 h-11 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white font-bold">
+                  R</div>
+                <div>
+                  <div class="font-semibold dark:text-white">Rajesh Kumar</div>
+                  <div class="text-xs text-gray-400">HR Director, Bangalore</div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
-            <div class="stars mb-4">★★★★★</div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"Booked my daughter's surprise
-              birthday party in 10 minutes. The customization options were insane. Guests were blown away by the entire
-              experience!"</p>
-            <div class="flex items-center gap-3">
-              <div
-                class="w-11 h-11 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold">
-                A</div>
-              <div>
-                <div class="font-semibold dark:text-white">Anita Patel</div>
-                <div class="text-xs text-gray-400">Parent, Delhi</div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
+              <div class="stars mb-4">★★★★★</div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"Booked my daughter's surprise
+                birthday party in 10 minutes. The customization options were insane. Guests were blown away by the
+                entire
+                experience!"</p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-11 h-11 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold">
+                  A</div>
+                <div>
+                  <div class="font-semibold dark:text-white">Anita Patel</div>
+                  <div class="text-xs text-gray-400">Parent, Delhi</div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Testimonial 4 -->
-          <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
-            <div class="stars mb-4">★★★★★</div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"The smoothest event booking
-              platform I've ever used. Everything from scheduling to guest management is just a few clicks. Brilliant
-              UX!"</p>
-            <div class="flex items-center gap-3">
-              <div
-                class="w-11 h-11 rounded-full bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center text-white font-bold">
-                V</div>
-              <div>
-                <div class="font-semibold dark:text-white">Vikram Nair</div>
-                <div class="text-xs text-gray-400">Event Manager, Chennai</div>
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card card-glass p-7 flex-shrink-0" style="width:360px;">
+              <div class="stars mb-4">★★★★★</div>
+              <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">"The smoothest event booking
+                platform I've ever used. Everything from scheduling to guest management is just a few clicks. Brilliant
+                UX!"</p>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-11 h-11 rounded-full bg-gradient-to-br from-orange-400 to-yellow-500 flex items-center justify-center text-white font-bold">
+                  V</div>
+                <div>
+                  <div class="font-semibold dark:text-white">Vikram Nair</div>
+                  <div class="text-xs text-gray-400">Event Manager, Chennai</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Controls -->
-      <div class="flex justify-center items-center gap-4 mt-8">
-        <button id="testi-prev"
-          class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">←</button>
-        <div class="flex gap-2">
-          <div class="testi-dot w-2 h-2 rounded-full bg-purple-600 cursor-pointer transition-colors"></div>
-          <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
-          <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
-          <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
+        <!-- Controls -->
+        <div class="flex justify-center items-center gap-4 mt-8">
+          <button id="testi-prev"
+            class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">←</button>
+          <div class="flex gap-2">
+            <div class="testi-dot w-2 h-2 rounded-full bg-purple-600 cursor-pointer transition-colors"></div>
+            <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
+            <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
+            <div class="testi-dot w-2 h-2 rounded-full bg-gray-300 cursor-pointer transition-colors"></div>
+          </div>
+          <button id="testi-next"
+            class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">→</button>
         </div>
-        <button id="testi-next"
-          class="w-10 h-10 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center hover:bg-primary hover:text-white hover:border-transparent transition-all">→</button>
       </div>
-    </div>
-  </section>
+    </section>
 
 
-  <!-- ==============================
+    <!-- ==============================
      CTA BANNER
      ============================== -->
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative overflow-hidden rounded-3xl bg-primary-gradient p-8 md:p-12 text-center text-white reveal">
-        <!-- Decorative orbs inside CTA -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="orb"
-            style="width:300px;height:300px;top:-80px;left:-60px;background:rgba(255,255,255,0.15);filter:blur(60px);animation:none;">
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative overflow-hidden rounded-3xl bg-primary-gradient p-8 md:p-12 text-center text-white reveal">
+          <!-- Decorative orbs inside CTA -->
+          <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="orb"
+              style="width:300px;height:300px;top:-80px;left:-60px;background:rgba(255,255,255,0.15);filter:blur(60px);animation:none;">
+            </div>
+            <div class="orb"
+              style="width:200px;height:200px;bottom:-40px;right:-40px;background:rgba(255,255,255,0.10);filter:blur(50px);animation:none;">
+            </div>
           </div>
-          <div class="orb"
-            style="width:200px;height:200px;bottom:-40px;right:-40px;background:rgba(255,255,255,0.10);filter:blur(50px);animation:none;">
-          </div>
-        </div>
-        <div class="relative z-10">
-          <div class="text-5xl mb-4">🚀</div>
-          <h2 class="text-4xl font-black mb-4" style="font-family:'Poppins',sans-serif;">Ready to Plan Your<br />Perfect
-            Event?</h2>
-          <p class="text-white/80 text-lg mb-8 max-w-md mx-auto">Join 50,000+ event planners who trust SparkleHeaven to
-            deliver unforgettable experiences.</p>
-          <div class="flex flex-wrap gap-4 justify-center">
-            <a href="events.html" class="btn bg-white text-purple-700 btn-lg font-bold hover:bg-white/90">Start Planning
-              Free →</a>
-            <a href="#contact" class="btn border-2 border-white/40 text-white btn-lg hover:bg-white/10">Talk to
-              Sales</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==============================
-     FOOTER
-     ============================== -->
-  <footer id="contact" class="bg-white/50 dark:bg-white/[0.02] border-t border-gray-100 dark:border-white/5 pt-16 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
-        <!-- Brand -->
-        <div class="lg:col-span-2">
-          <div class="flex items-center gap-2 mb-4">
-            <div
-              class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">
-              ✦</div>
-            <span class="text-xl font-bold gradient-text" style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
-          </div>
-          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">The future of event management.
-            Plan, book, and manage unforgettable events with AI-powered tools.</p>
-          <div class="flex gap-3 mt-5">
-            <a href="#"
-              class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">𝕏</a>
-            <a href="#"
-              class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">in</a>
-            <a href="#"
-              class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-pink-500 hover:text-white transition-all">📸</a>
-            <a href="#"
-              class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-green-500 hover:text-white transition-all">📺</a>
-          </div>
-        </div>
-        <!-- Links -->
-        <div>
-          <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Services</h4>
-          <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><a href="#services" class="hover:text-primary transition-colors">Wedding Planning</a></li>
-            <li><a href="#services" class="hover:text-primary transition-colors">Corporate Events</a></li>
-            <li><a href="#services" class="hover:text-primary transition-colors">Social Events</a></li>
-            <li><a href="#services" class="hover:text-primary transition-colors">Traditional & Cultural</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Company</h4>
-          <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <li><a href="#" class="hover:text-primary transition-colors">About Us</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
-            <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Contact Us</h4>
-          <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
-            <li class="flex items-center gap-2">📧 <a href="mailto:hello@sparklehaven.in"
-                class="hover:text-primary transition-colors">hello@sparklehaven.in</a></li>
-            <li class="flex items-center gap-2">📞 <a href="tel:+919000000000"
-                class="hover:text-primary transition-colors">+91 90000 00000</a></li>
-            <li class="flex items-center gap-2">📍 <span>Othakkadai, Madurai</span></li>
-          </ul>
-          <div class="mt-5">
-            <div class="text-sm font-medium mb-2 dark:text-white">Subscribe for updates</div>
-            <div class="flex gap-2">
-              <input type="email" placeholder="your@email.com" class="input text-sm py-2"
-                style="border-radius:10px;flex:1;min-width:0" />
-              <button class="btn btn-primary btn-sm" onclick="showToast('Subscribed! 🎉','success')">→</button>
+          <div class="relative z-10">
+            <div class="text-5xl mb-4">🚀</div>
+            <h2 class="text-4xl font-black mb-4" style="font-family:'Poppins',sans-serif;">Ready to Plan
+              Your<br />Perfect
+              Event?</h2>
+            <p class="text-white/80 text-lg mb-8 max-w-md mx-auto">Join 50,000+ event planners who trust SparkleHeaven
+              to
+              deliver unforgettable experiences.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+              <a href="events.html" class="btn bg-white text-purple-700 btn-lg font-bold hover:bg-white/90">Start
+                Planning
+                Free →</a>
+              <a href="#contact" class="btn border-2 border-white/40 text-white btn-lg hover:bg-white/10">Talk to
+                Sales</a>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div
-        class="border-t border-gray-100 dark:border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
-        <span>© 2026 SparkleHeaven. All rights reserved.</span>
-        <div class="flex gap-4">
-          <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-          <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+    <!-- ==============================
+     FOOTER
+     ============================== -->
+    <footer id="contact"
+      class="bg-white/50 dark:bg-white/[0.02] border-t border-gray-100 dark:border-white/5 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+          <!-- Brand -->
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-2 mb-4">
+              <div
+                class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">
+                ✦</div>
+              <span class="text-xl font-bold gradient-text"
+                style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">The future of event management.
+              Plan, book, and manage unforgettable events with AI-powered tools.</p>
+            <div class="flex gap-3 mt-5">
+              <a href="#"
+                class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">𝕏</a>
+              <a href="#"
+                class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">in</a>
+              <a href="#"
+                class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-pink-500 hover:text-white transition-all">📸</a>
+              <a href="#"
+                class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-green-500 hover:text-white transition-all">📺</a>
+            </div>
+          </div>
+          <!-- Links -->
+          <div>
+            <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Services</h4>
+            <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="#services" class="hover:text-primary transition-colors">Wedding Planning</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Corporate Events</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Social Events</a></li>
+              <li><a href="#services" class="hover:text-primary transition-colors">Traditional & Cultural</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Company</h4>
+            <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
+              <li><a href="#" class="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+              <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Contact Us</h4>
+            <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
+              <li class="flex items-center gap-2">📧 <a href="mailto:hello@sparklehaven.in"
+                  class="hover:text-primary transition-colors">hello@sparklehaven.in</a></li>
+              <li class="flex items-center gap-2">📞 <a href="tel:+919000000000"
+                  class="hover:text-primary transition-colors">+91 90000 00000</a></li>
+              <li class="flex items-center gap-2">📍 <span>Othakkadai, Madurai</span></li>
+            </ul>
+            <div class="mt-5">
+              <div class="text-sm font-medium mb-2 dark:text-white">Subscribe for updates</div>
+              <div class="flex gap-2">
+                <input type="email" placeholder="your@email.com" class="input text-sm py-2"
+                  style="border-radius:10px;flex:1;min-width:0" />
+                <button class="btn btn-primary btn-sm" onclick="showToast('Subscribed! 🎉','success')">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-100 dark:border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+          <span>© 2026 SparkleHeaven. All rights reserved.</span>
+          <div class="flex gap-4">
+            <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==============================
+     WHATSAPP FLOATING BUTTON
+     ============================== -->
+    <button id="whatsapp-btn" aria-label="Contact via WhatsApp"
+      onclick="showToast('WhatsApp link coming soon! 📱','info')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+      <span class="whatsapp-tooltip">Chat with us!</span>
+    </button>
+
+    <!-- Booking Success Modal (reused across pages) -->
+    <div class="modal-overlay" id="booking-success-modal">
+      <div class="modal p-8 text-center">
+        <div class="text-6xl mb-4">🎉</div>
+        <h3 class="text-2xl font-black mb-2 dark:text-white" style="font-family:'Poppins',sans-serif;">Booking
+          Confirmed!
+        </h3>
+        <p class="text-gray-500 dark:text-gray-400 mb-6">Your event has been successfully booked. We've sent
+          confirmation
+          details to your email.</p>
+        <div class="bg-gray-50 dark:bg-white/5 rounded-2xl p-4 mb-6 text-left">
+          <div class="flex justify-between text-sm mb-2"><span class="text-gray-500">Booking ID</span><span
+              class="font-mono font-bold dark:text-white">#SH-20260219</span></div>
+          <div class="flex justify-between text-sm mb-2"><span class="text-gray-500">Event</span><span
+              class="font-semibold dark:text-white">Royal Garden Wedding</span></div>
+          <div class="flex justify-between text-sm"><span class="text-gray-500">Status</span><span
+              class="badge badge-success">Confirmed ✓</span></div>
+        </div>
+        <div class="flex gap-3">
+          <button class="btn btn-secondary flex-1" onclick="closeModal('booking-success-modal')">Close</button>
+          <a href="dashboard.html" class="btn btn-primary flex-1">View Dashboard →</a>
         </div>
       </div>
     </div>
-  </footer>
 
-  <!-- ==============================
-     WHATSAPP FLOATING BUTTON
-     ============================== -->
-  <button id="whatsapp-btn" aria-label="Contact via WhatsApp"
-    onclick="showToast('WhatsApp link coming soon! 📱','info')">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-    <span class="whatsapp-tooltip">Chat with us!</span>
-  </button>
-
-  <!-- Booking Success Modal (reused across pages) -->
-  <div class="modal-overlay" id="booking-success-modal">
-    <div class="modal p-8 text-center">
-      <div class="text-6xl mb-4">🎉</div>
-      <h3 class="text-2xl font-black mb-2 dark:text-white" style="font-family:'Poppins',sans-serif;">Booking Confirmed!
-      </h3>
-      <p class="text-gray-500 dark:text-gray-400 mb-6">Your event has been successfully booked. We've sent confirmation
-        details to your email.</p>
-      <div class="bg-gray-50 dark:bg-white/5 rounded-2xl p-4 mb-6 text-left">
-        <div class="flex justify-between text-sm mb-2"><span class="text-gray-500">Booking ID</span><span
-            class="font-mono font-bold dark:text-white">#SH-20260219</span></div>
-        <div class="flex justify-between text-sm mb-2"><span class="text-gray-500">Event</span><span
-            class="font-semibold dark:text-white">Royal Garden Wedding</span></div>
-        <div class="flex justify-between text-sm"><span class="text-gray-500">Status</span><span
-            class="badge badge-success">Confirmed ✓</span></div>
-      </div>
-      <div class="flex gap-3">
-        <button class="btn btn-secondary flex-1" onclick="closeModal('booking-success-modal')">Close</button>
-        <a href="dashboard.html" class="btn btn-primary flex-1">View Dashboard →</a>
-      </div>
-    </div>
   </div>
-
   <!-- Toast Container -->
   <div class="toast-container"></div>
 
