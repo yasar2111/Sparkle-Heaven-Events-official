@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="About Sparkle Heaven — Event Management Company based in Madurai, specializing in weddings, corporate events, birthday parties and more." />
+    <title>About Us — SparkleHeaven</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        accent: '#EC4899',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .about-hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .about-section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+
+        .service-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .service-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+        }
+
+        .event-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+        }
+
+        .event-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.08));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .event-card:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-hero-gradient min-h-screen">
+
+    <!-- ==============================
+     NAVBAR
+     ============================== -->
+    <nav id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+                <div
+                    class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">
+                    ✦</div>
+                <span class="text-xl font-bold gradient-text"
+                    style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1">
+                <a href="index.html" class="btn btn-ghost btn-sm">Home</a>
+                <a href="about.html" class="btn btn-ghost btn-sm" style="color:var(--primary);font-weight:600;">About
+                    Us</a>
+                <a href="index.html#services" class="btn btn-ghost btn-sm">Services</a>
+                <a href="index.html#contact" class="btn btn-ghost btn-sm">Contact Us</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <button data-dark-toggle onclick="toggleDark()" class="dark-toggle" title="Toggle dark mode">
+                    <span data-dark-icon>🌙</span>
+                </button>
+                <button id="menu-open"
+                    class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/60 dark:bg-white/10 backdrop-blur"
+                    aria-label="Open menu">
+                    <svg width="20" height="16" fill="currentColor" class="dark:fill-white">
+                        <rect y="0" width="20" height="2" rx="1" />
+                        <rect y="7" width="20" height="2" rx="1" />
+                        <rect y="14" width="20" height="2" rx="1" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <div id="mobile-menu-backdrop"></div>
+        <div id="mobile-menu-panel" class="flex flex-col pt-8">
+            <div class="flex items-center justify-between mb-8">
+                <span class="text-xl font-bold gradient-text"
+                    style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+                <button id="menu-close"
+                    class="w-9 h-9 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-white/10">✕</button>
+            </div>
+            <div class="flex flex-col gap-1">
+                <a href="index.html" class="sidebar-link">🏠 Home</a>
+                <a href="about.html" class="sidebar-link">👥 About Us</a>
+                <a href="index.html#services" class="sidebar-link">✨ Services</a>
+                <a href="index.html#contact" class="sidebar-link">📞 Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================
+     ABOUT HERO — Split Layout
+     ============================== -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <!-- BG Orbs -->
+        <div class="hero-blob">
+            <div class="orb orb-purple" style="width:400px;height:400px;top:-80px;right:-80px;"></div>
+            <div class="orb orb-pink" style="width:300px;height:300px;bottom:0;left:-60px;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Image -->
+                <div class="relative reveal">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl" style="height:480px;">
+                        <img src="team-photo.jpg" alt="Sparkle Heaven Team" class="w-full h-full object-cover" />
+                    </div>
+                    <!-- Decorative accent -->
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-primary-gradient opacity-20 -z-10">
+                    </div>
+                    <div
+                        class="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 opacity-20 -z-10">
+                    </div>
+                </div>
+
+                <!-- Right: Title + Intro -->
+                <div class="reveal">
+                    <div class="section-label w-fit mb-4">👥 About Us</div>
+                    <h1 class="about-hero-title dark:text-white mb-2">
+                        ABOUT<br />
+                        <span class="gradient-text">US</span>
+                    </h1>
+                    <div class="w-16 h-1 bg-primary-gradient rounded-full mb-6"></div>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg mb-6">
+                        Sparkle Heaven was born from passion, friendship, and creativity. We are a team of energetic
+                        youngsters who turned our love for celebrations into a full-service event management company.
+                    </p>
+                    <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+                        Based in <strong class="text-gray-700 dark:text-gray-200">Othakkadai, Madurai</strong>, our
+                        mission is simple — every occasion deserves to feel magical, memorable, and stress-free for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+     OUR STORY
+     ============================== -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="section-label mx-auto w-fit">✨ Our Story</div>
+                <h2 class="section-heading">We Don't Plan Events…<br /><span class="gradient-text">We Craft
+                        Happiness</span></h2>
+            </div>
+
+            <div class="space-y-6 reveal">
+                <div class="card-glass p-8">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        From intimate family functions to grand celebrations, we carefully plan, design, and execute
+                        every detail with perfection. We don't just arrange events… we create <strong
+                            class="gradient-text">experiences that your guests will talk about</strong> long after the
+                        day ends.
+                    </p>
+                </div>
+
+                <div class="card-glass p-8">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                        Whether it's the emotional beauty of a wedding, the joy of a baby shower, the excitement of a
+                        surprise party, or the professionalism of a corporate event — we bring <strong
+                            class="gradient-text">creativity, elegance, and smooth management</strong> to every moment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+     WHAT WE ORGANIZE
+     ============================== -->
+    <section class="py-20 bg-white/40 dark:bg-white/[0.02]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="section-label mx-auto w-fit">🎯 What We Organize</div>
+                <h2 class="section-heading">Events We<br /><span class="gradient-text">Specialize In</span></h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger">
+                <!-- Wedding -->
+                <div class="event-card card-glass p-8 text-center">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-primary-gradient flex items-center justify-center text-3xl mx-auto mb-5">
+                        💒</div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2" style="font-family:'Poppins',sans-serif;">Wedding
+                        Ceremonies</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">From mandap to reception, every moment planned
+                        to perfection.</p>
+                </div>
+
+                <!-- Baby Shower -->
+                <div class="event-card card-glass p-8 text-center">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-3xl mx-auto mb-5">
+                        🍼</div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2" style="font-family:'Poppins',sans-serif;">Baby
+                        Shower Functions</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Enchanting themes and heartwarming celebrations
+                        for your little one.</p>
+                </div>
+
+                <!-- Birthday -->
+                <div class="event-card card-glass p-8 text-center">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-3xl mx-auto mb-5">
+                        🎂</div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2" style="font-family:'Poppins',sans-serif;">
+                        Birthday & Surprise Parties</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Unforgettable fun-filled celebrations for every
+                        age.</p>
+                </div>
+
+                <!-- Inauguration -->
+                <div class="event-card card-glass p-8 text-center">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-3xl mx-auto mb-5">
+                        🎗️</div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2" style="font-family:'Poppins',sans-serif;">
+                        Inauguration Events</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Grand openings and ribbon-cutting ceremonies
+                        executed flawlessly.</p>
+                </div>
+
+                <!-- Corporate -->
+                <div class="event-card card-glass p-8 text-center">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-3xl mx-auto mb-5">
+                        💼</div>
+                    <h3 class="text-xl font-bold dark:text-white mb-2" style="font-family:'Poppins',sans-serif;">
+                        Corporate Events</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Professional event management with precision and
+                        style.</p>
+                </div>
+
+                <!-- All Events -->
+                <div class="event-card card-glass p-8 text-center flex flex-col items-center justify-center"
+                    style="background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.08));">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold gradient-text mb-2" style="font-family:'Poppins',sans-serif;">& Much
+                        More</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Every celebration, big or small.</p>
+                    <a href="index.html#services" class="btn btn-primary btn-sm mt-4">View All Services →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+     OUR COMPLETE SERVICES
+     ============================== -->
+    <section class="py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="section-label mx-auto w-fit">🎪 Our Complete Services</div>
+                <h2 class="section-heading">Everything Under<br /><span class="gradient-text">One Roof</span></h2>
+                <p class="section-sub mx-auto text-center">We provide everything so you don't have to worry about
+                    multiple vendors.</p>
+            </div>
+
+            <div class="card-glass p-10 reveal">
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="service-pill card-glass">🍽️ Catering Service</span>
+                    <span class="service-pill card-glass">💄 Bridal Makeup</span>
+                    <span class="service-pill card-glass">📸 Photography & Videography</span>
+                    <span class="service-pill card-glass">🎪 Stage Decoration</span>
+                    <span class="service-pill card-glass">💐 Garlands</span>
+                    <span class="service-pill card-glass">🎈 Thematic Birthday Decorations</span>
+                    <span class="service-pill card-glass">🥁 Chendamelam</span>
+                    <span class="service-pill card-glass">🪘 Dhol</span>
+                    <span class="service-pill card-glass">🎧 DJ</span>
+                    <span class="service-pill card-glass">💡 Lightings & Sound System</span>
+                    <span class="service-pill card-glass">🙋‍♀️ Welcome Girls</span>
+                    <span class="service-pill card-glass">💃 Welcome Dancers</span>
+                    <span class="service-pill card-glass">🍽️ Decorative Plates</span>
+                    <span class="service-pill card-glass">🎁 Return Gifts</span>
+                    <span class="service-pill card-glass">🍦 Ice Cream</span>
+                    <span class="service-pill card-glass">🥤 Beeda</span>
+                    <span class="service-pill card-glass">🍿 Popcorn & More</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+     TAGLINE BANNER
+     ============================== -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="card-glass p-12 text-center reveal"
+                style="background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.06));">
+                <div class="text-5xl mb-6">✨</div>
+                <h2 class="text-3xl lg:text-4xl font-black dark:text-white mb-4"
+                    style="font-family:'Poppins',sans-serif;">
+                    Sparkle Heaven
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 font-medium italic">
+                    "We don't plan events… we <span class="gradient-text font-bold">craft happiness.</span>"
+                </p>
+                <a href="index.html#contact" class="btn btn-primary mt-8 inline-flex">Get In Touch →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+     FOOTER
+     ============================== -->
+    <footer id="contact"
+        class="bg-white/50 dark:bg-white/[0.02] border-t border-gray-100 dark:border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-9 h-9 rounded-xl bg-primary-gradient flex items-center justify-center text-white font-bold text-lg">
+                            ✦</div>
+                        <span class="text-xl font-bold gradient-text"
+                            style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">Born from passion,
+                        friendship, and creativity. Based in Othakkadai, Madurai.</p>
+                    <div class="flex gap-3 mt-5">
+                        <a href="#"
+                            class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">𝕏</a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all">in</a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-pink-500 hover:text-white transition-all">📸</a>
+                        <a href="#"
+                            class="w-9 h-9 rounded-xl bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 hover:bg-green-500 hover:text-white transition-all">📺</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Services</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="index.html#services" class="hover:text-primary transition-colors">Wedding
+                                Planning</a></li>
+                        <li><a href="index.html#services" class="hover:text-primary transition-colors">Corporate
+                                Events</a></li>
+                        <li><a href="index.html#services" class="hover:text-primary transition-colors">Social Events</a>
+                        </li>
+                        <li><a href="index.html#services" class="hover:text-primary transition-colors">Traditional &
+                                Cultural</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Company</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="index.html#services" class="hover:text-primary transition-colors">Our Services</a>
+                        </li>
+                        <li><a href="index.html#contact" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider mb-4 dark:text-white">Contact Us</h4>
+                    <ul class="flex flex-col gap-3 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-center gap-2">📧 <a href="mailto:hello@sparklehaven.in"
+                                class="hover:text-primary transition-colors">hello@sparklehaven.in</a></li>
+                        <li class="flex items-center gap-2">📞 <a href="tel:+919000000000"
+                                class="hover:text-primary transition-colors">+91 90000 00000</a></li>
+                        <li class="flex items-center gap-2">📍 <span>Othakkadai, Madurai</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-100 dark:border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+                <span>© 2026 SparkleHeaven. All rights reserved.</span>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
