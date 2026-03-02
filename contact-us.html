@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Sparkle Heaven — Event Planners Madurai</title>
+    <meta name="description"
+        content="Contact Sparkle Heaven to book wedding decorations, birthday setups, and event services in Madurai. Call or message us today!">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="styles.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { primary: '#D4AF37', accent: '#C62828' } } }
+        }
+    </script>
+    <style>
+        /* Spinner */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.35);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.75s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Input styles */
+        .contact-input {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.75rem;
+            border: 2px solid #e5e7eb;
+            background: rgba(255, 255, 255, 0.7);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #1f2937;
+        }
+
+        .contact-input:focus {
+            border-color: #D4AF37;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+            background: #fff;
+        }
+
+        .contact-input.is-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
+        /* Phone prefix */
+        .phone-prefix {
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid #e5e7eb;
+            border-right: none;
+            border-radius: 0.75rem 0 0 0.75rem;
+            font-size: 0.95rem;
+            color: #374151;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .phone-row {
+            display: flex;
+        }
+
+        .phone-row .contact-input {
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .phone-row.focused .phone-prefix {
+            border-color: #D4AF37;
+            background: #fff;
+        }
+
+        .phone-row.is-error .phone-prefix {
+            border-color: #ef4444;
+        }
+
+        .phone-row.is-error .contact-input {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
+        /* Field error */
+        .field-err {
+            font-size: 0.78rem;
+            color: #ef4444;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .field-err.show {
+            display: block;
+        }
+
+        /* Button */
+        #submit-btn {
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        #submit-btn:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-hero-gradient min-h-screen font-['Inter'] text-gray-800">
+    <div class="overflow-x-hidden w-full min-h-screen flex flex-col">
+
+        <!-- NAVBAR -->
+        <header class="w-full z-50 bg-white/40 backdrop-blur-md shadow-sm border-b border-white/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
+                <a href="index.html" class="flex items-center gap-2 transition-transform hover:scale-105">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-[0_4px_10px_rgba(212,175,55,0.4)]"
+                        style="background:linear-gradient(135deg,var(--primary),var(--accent));">✦</div>
+                    <span class="text-xl font-bold gradient-text"
+                        style="font-family:'Poppins',sans-serif;">SparkleHeaven</span>
+                </a>
+                <a href="index.html"
+                    class="text-sm font-bold text-gray-700 hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1">
+                    <span>←</span> Back to Home
+                </a>
+            </div>
+        </header>
+
+        <!-- MAIN -->
+        <main class="flex-grow flex items-center justify-center py-16 px-4">
+            <div class="max-w-5xl w-full mx-auto">
+
+                <!-- Page Header -->
+                <div class="text-center mb-12">
+                    <div class="section-label mx-auto w-fit mb-4">📞 Contact Us</div>
+                    <h1 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight"
+                        style="font-family:'Poppins',sans-serif;">
+                        Let's Plan Your<br><span class="gradient-text">Dream Event</span>
+                    </h1>
+                    <p class="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
+                        Fill in your details and we'll reach out within 24 hours.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-5 gap-8 items-start">
+
+                    <!-- ── Left Info Cards ────────────────────────────────── -->
+                    <div class="md:col-span-2 space-y-4">
+
+                        <div class="card-glass p-5 border border-white/50 flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-xl shrink-0">
+                                📍</div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Our Location</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Othakkadai, Madurai<br>Tamil Nadu,
+                                    India</p>
+                            </div>
+                        </div>
+
+                        <div class="card-glass p-5 border border-white/50 flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-2xl bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center text-xl shrink-0">
+                                📞</div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Call / WhatsApp</h3>
+                                <a href="https://wa.me/919500750609" target="_blank"
+                                    class="text-gray-600 text-sm hover:text-[var(--accent)] transition-colors">+91 95007
+                                    50609</a>
+                            </div>
+                        </div>
+
+                        <div class="card-glass p-5 border border-white/50 flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center text-xl shrink-0">
+                                📧</div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Email Us</h3>
+                                <p class="text-gray-600 text-sm">yasariosdev@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="card-glass p-5 border border-white/50 flex items-start gap-4">
+                            <div
+                                class="w-11 h-11 rounded-2xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center text-xl shrink-0">
+                                🕐</div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Working Hours</h3>
+                                <p class="text-gray-600 text-sm">Mon – Sat: 9 AM – 8 PM<br>Sunday: By Appointment</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ── Right Form Card ─────────────────────────────────── -->
+                    <div class="md:col-span-3">
+                        <div class="card-glass p-8 md:p-10 border border-white/50 shadow-2xl relative overflow-hidden">
+
+                            <!-- Decorative glow -->
+                            <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-20 pointer-events-none"
+                                style="background:radial-gradient(circle,#D4AF37,transparent 70%);"></div>
+
+                            <h2 class="text-xl font-black text-gray-900 mb-6" style="font-family:'Poppins',sans-serif;">
+                                Send Us a Message ✉️
+                            </h2>
+
+                            <!--
+                FormSubmit standard POST — triggers activation email on first use.
+                After user confirms email, all submissions go to yasariosdev@gmail.com
+                with CC to mohamedyasar2111@gmail.com.
+              -->
+                            <form id="contact-form" action="https://formsubmit.co/yasariosdev@gmail.com" method="POST"
+                                novalidate class="space-y-5">
+
+                                <!-- FormSubmit config hidden fields -->
+                                <input type="hidden" name="_subject" value="🎉 New Booking Inquiry — SparkleHeaven">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_cc" value="mohamedyasar2111@gmail.com">
+                                <input type="hidden" name="_next" value="thanks.html">
+
+                                <!-- Honeypot (anti-spam) -->
+                                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                                <!-- Name -->
+                                <div>
+                                    <label for="name" class="block text-sm font-bold text-gray-700 mb-1.5">
+                                        Full Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" autocomplete="name" class="contact-input"
+                                        placeholder="e.g. Mohamed Yasar" maxlength="80">
+                                    <p class="field-err" id="name-err">Please enter your name (at least 2 characters).
+                                    </p>
+                                </div>
+
+                                <!-- Phone -->
+                                <div>
+                                    <label for="phone" class="block text-sm font-bold text-gray-700 mb-1.5">
+                                        Phone Number <span class="text-red-500">*</span>
+                                    </label>
+                                    <div class="phone-row" id="phone-row">
+                                        <span class="phone-prefix">🇮🇳 +91</span>
+                                        <input type="tel" id="phone" name="phone" autocomplete="tel"
+                                            class="contact-input" placeholder="95007 50609" maxlength="10"
+                                            oninput="this.value=this.value.replace(/\D/g,'')"
+                                            onfocus="document.getElementById('phone-row').classList.add('focused')"
+                                            onblur="document.getElementById('phone-row').classList.remove('focused')">
+                                    </div>
+                                    <p class="field-err" id="phone-err">Please enter a valid 10-digit Indian mobile
+                                        number.</p>
+                                </div>
+
+                                <!-- Event Type -->
+                                <div>
+                                    <label for="event_type" class="block text-sm font-bold text-gray-700 mb-1.5">Event
+                                        Type</label>
+                                    <select id="event_type" name="event_type" class="contact-input">
+                                        <option value="">Select event type (optional)</option>
+                                        <option value="Wedding / Reception">💍 Wedding / Reception</option>
+                                        <option value="Engagement">💑 Engagement</option>
+                                        <option value="Birthday Party">🎂 Birthday Party</option>
+                                        <option value="Baby Shower">🍼 Baby Shower</option>
+                                        <option value="Corporate Event">💼 Corporate Event</option>
+                                        <option value="Traditional Function">🪔 Traditional Function (Pooja /
+                                            Nichayathartham)</option>
+                                        <option value="Other">✨ Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Message -->
+                                <div>
+                                    <label for="message" class="block text-sm font-bold text-gray-700 mb-1.5">
+                                        Message <span class="text-gray-400 font-normal text-xs">(Optional)</span>
+                                    </label>
+                                    <textarea id="message" name="message" rows="4" class="contact-input resize-none"
+                                        placeholder="Tell us about your event date, venue, guest count or any special requirements…"
+                                        maxlength="1000"></textarea>
+                                    <p class="text-right text-xs text-gray-400 mt-1"><span id="char-count">0</span>/1000
+                                    </p>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <button type="submit" id="submit-btn"
+                                    class="w-full py-4 rounded-xl font-black text-lg text-white flex justify-center items-center gap-3 hover:scale-[1.02]"
+                                    style="background:linear-gradient(135deg,#D4AF37,#b8941f);box-shadow:0 8px 24px rgba(212,175,55,0.35);">
+                                    <span id="btn-text">Send Message 🚀</span>
+                                    <span id="btn-spinner" class="spinner" style="display:none;"></span>
+                                </button>
+
+                                <p class="text-center text-xs text-gray-400">🔒 Your information is secure and never
+                                    shared.</p>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer
+            class="bg-white/40 border-t border-gray-100 py-8 text-center text-sm text-gray-500 backdrop-blur-sm mt-auto">
+            <div class="max-w-7xl mx-auto px-4 font-medium">© 2026 SparkleHeaven. All rights reserved.</div>
+        </footer>
+
+    </div>
+
+    <script>
+        // ── char counter ─────────────────────────────────────────────────────────
+        const msg = document.getElementById('message');
+        const ctr = document.getElementById('char-count');
+        msg.addEventListener('input', () => ctr.textContent = msg.value.length);
+
+        // ── validation helpers ───────────────────────────────────────────────────
+        function setError(inputId, errId, rowId) {
+            if (rowId) document.getElementById(rowId).classList.add('is-error');
+            else document.getElementById(inputId).classList.add('is-error');
+            document.getElementById(errId).classList.add('show');
+        }
+        function clearError(inputId, errId, rowId) {
+            if (rowId) document.getElementById(rowId).classList.remove('is-error');
+            else document.getElementById(inputId).classList.remove('is-error');
+            document.getElementById(errId).classList.remove('show');
+        }
+
+        document.getElementById('name').addEventListener('input', () => clearError('name', 'name-err'));
+        document.getElementById('phone').addEventListener('input', () => clearError('phone', 'phone-err', 'phone-row'));
+
+        // ── form submit ──────────────────────────────────────────────────────────
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // validate first, then submit
+
+            let valid = true;
+
+            // name
+            const name = document.getElementById('name').value.trim();
+            if (name.length < 2) { setError('name', 'name-err'); valid = false; }
+            else clearError('name', 'name-err');
+
+            // phone — 10 digits starting 6-9
+            const ph = document.getElementById('phone').value.trim().replace(/\s/g, '');
+            if (!/^[6-9]\d{9}$/.test(ph)) { setError('phone', 'phone-err', 'phone-row'); valid = false; }
+            else clearError('phone', 'phone-err', 'phone-row');
+
+            if (!valid) return;
+
+            // Show loading state, then submit naturally
+            const btn = document.getElementById('submit-btn');
+            document.getElementById('btn-text').textContent = 'Sending…';
+            document.getElementById('btn-spinner').style.display = 'inline-block';
+            btn.disabled = true;
+
+            // Let the browser POST the form to FormSubmit → redirects to thanks.html
+            this.submit();
+        });
+    </script>
+
+</body>
+
+</html>

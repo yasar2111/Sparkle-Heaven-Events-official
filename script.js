@@ -1,36 +1,31 @@
 /**
  * ============================================
  * SPARKLE HEAVEN - Event Management Platform
- * Shared JavaScript: Dark Mode, Animations,
+ * Shared JavaScript: Celebrations, Animations,
  * Navbar, Mobile Menu, Toast, Modal, Ripple
  * ============================================
  */
 
-// ---- Dark Mode ----
-const DARK_KEY = 'sh_dark';
+// ---- Confetti Celebrations ----
+function createConfetti() {
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    document.body.appendChild(container);
 
-function initDarkMode() {
-    const saved = localStorage.getItem(DARK_KEY);
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = saved !== null ? saved === 'true' : prefersDark;
-    setDark(isDark, false);
-}
+    const colors = ['#D4AF37', '#C62828', '#E8C547', '#EF5350', '#FF8F00', '#B71C1C', '#FFD700', '#FF6F00'];
 
-function setDark(on, animate = true) {
-    document.body.classList.toggle('dark', on);
-    localStorage.setItem(DARK_KEY, on);
-
-    const toggles = document.querySelectorAll('[data-dark-toggle]');
-    toggles.forEach(t => {
-        t.classList.toggle('active', on);
-        const icon = t.querySelector('[data-dark-icon]');
-        if (icon) icon.textContent = on ? '☀️' : '🌙';
-    });
-}
-
-function toggleDark() {
-    const isDark = document.body.classList.contains('dark');
-    setDark(!isDark);
+    for (let i = 0; i < 30; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + '%';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDuration = (Math.random() * 8 + 6) + 's';
+        piece.style.animationDelay = (Math.random() * 10) + 's';
+        piece.style.width = (Math.random() * 8 + 4) + 'px';
+        piece.style.height = (Math.random() * 8 + 4) + 'px';
+        piece.style.opacity = (Math.random() * 0.4 + 0.2).toFixed(2);
+        container.appendChild(piece);
+    }
 }
 
 // ---- Navbar Scroll ----
@@ -148,129 +143,6 @@ document.addEventListener('keydown', e => {
     }
 });
 
-// ---- Range Slider Gradient ----
-function initRangeSliders() {
-    document.querySelectorAll('input[type="range"]').forEach(input => {
-        const update = () => {
-            const min = +input.min || 0;
-            const max = +input.max || 100;
-            const val = ((+input.value - min) / (max - min)) * 100;
-            input.style.setProperty('--val', val + '%');
-        };
-        input.addEventListener('input', update);
-        update();
-    });
-}
-
-// ---- Ticket Quantity Controls ----
-function initQtyControls() {
-    document.querySelectorAll('.qty-control').forEach(ctrl => {
-        const minus = ctrl.querySelector('[data-minus]');
-        const plus = ctrl.querySelector('[data-plus]');
-        const num = ctrl.querySelector('.qty-num');
-        if (!num) return;
-
-        let qty = parseInt(num.textContent) || 1;
-        const min = parseInt(ctrl.dataset.min) || 1;
-        const max = parseInt(ctrl.dataset.max) || 99;
-
-        if (minus) minus.addEventListener('click', () => {
-            if (qty > min) { qty--; num.textContent = qty; updateTotal(); }
-        });
-        if (plus) plus.addEventListener('click', () => {
-            if (qty < max) { qty++; num.textContent = qty; updateTotal(); }
-        });
-    });
-}
-
-// ---- Pricing Total Update (Event Details) ----
-function updateTotal() {
-    const priceEl = document.getElementById('ticket-price');
-    const qtyEl = document.querySelector('.qty-num');
-    const totalEl = document.getElementById('ticket-total');
-    if (!priceEl || !qtyEl || !totalEl) return;
-    const price = parseFloat(priceEl.dataset.price || priceEl.textContent.replace(/[^0-9.]/g, ''));
-    const qty = parseInt(qtyEl.textContent);
-    totalEl.textContent = '₹' + (price * qty).toLocaleString('en-IN');
-}
-
-// ---- Dashboard Sidebar Toggle ----
-function initDashSidebar() {
-    const sidebar = document.getElementById('dash-sidebar');
-    const toggleBtn = document.getElementById('dash-sidebar-toggle');
-    const overlay = document.getElementById('dash-overlay');
-    if (!sidebar) return;
-
-    const isMobile = () => window.innerWidth < 768;
-
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            if (isMobile()) {
-                sidebar.classList.toggle('mobile-open');
-                if (overlay) overlay.classList.toggle('hidden');
-            } else {
-                sidebar.classList.toggle('collapsed');
-                document.querySelectorAll('.sidebar-label').forEach(l =>
-                    l.classList.toggle('hidden', sidebar.classList.contains('collapsed'))
-                );
-            }
-        });
-    }
-
-    if (overlay) {
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('mobile-open');
-            overlay.classList.add('hidden');
-        });
-    }
-}
-
-// ---- Dashboard Tab Navigation ----
-function initDashTabs() {
-    const links = document.querySelectorAll('.sidebar-link[data-section]');
-    const sections = document.querySelectorAll('.dash-section');
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const target = link.dataset.section;
-            links.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            sections.forEach(s => {
-                s.classList.toggle('hidden', s.id !== target);
-            });
-            // Close mobile sidebar
-            const sidebar = document.getElementById('dash-sidebar');
-            if (sidebar && window.innerWidth < 768) {
-                sidebar.classList.remove('mobile-open');
-                const overlay = document.getElementById('dash-overlay');
-                if (overlay) overlay.classList.add('hidden');
-            }
-        });
-    });
-}
-
-// ---- Skeleton Loading Simulation ----
-function simulateLoading(container, delay = 1200) {
-    if (!container) return;
-    const skeletons = container.querySelectorAll('.skeleton-card');
-    const real = container.querySelectorAll('.real-card');
-    skeletons.forEach(s => s.classList.remove('hidden'));
-    real.forEach(r => r.classList.add('hidden'));
-    setTimeout(() => {
-        skeletons.forEach(s => s.classList.add('hidden'));
-        real.forEach(r => r.classList.remove('hidden'));
-    }, delay);
-}
-
-// ---- Filter Toggle (Mobile) ----
-function initFilterToggle() {
-    const btn = document.getElementById('filter-toggle');
-    const sidebar = document.getElementById('filter-sidebar');
-    if (!btn || !sidebar) return;
-    btn.addEventListener('click', () => {
-        sidebar.classList.toggle('hidden');
-    });
-}
 
 // ---- Testimonial Carousel ----
 function initTestimonialCarousel() {
@@ -454,18 +326,6 @@ function initWorksCarousel() {
     buildDots();
 }
 
-// ---- Booking Success Modal ----
-function bookNow() {
-    openModal('booking-success-modal');
-    showToast('🎉 Booking confirmed! Check your email.', 'success');
-}
-
-// ---- Custom Checkboxes ----
-function initCheckboxes() {
-    document.querySelectorAll('.custom-check').forEach(box => {
-        box.addEventListener('click', () => box.classList.toggle('checked'));
-    });
-}
 
 // ---- Smooth Page Transition ----
 function initPageTransition() {
@@ -482,37 +342,19 @@ function initPageTransition() {
     });
 }
 
-// ---- Sticky Mobile Book Button ----
-function initStickyBook() {
-    const sticky = document.getElementById('mobile-book-sticky');
-    if (!sticky) return;
-    window.addEventListener('scroll', () => {
-        const sidebar = document.getElementById('booking-sidebar-desktop');
-        if (!sidebar) return;
-        const rect = sidebar.getBoundingClientRect();
-        sticky.classList.toggle('hidden', window.innerWidth > 768 || rect.top < window.innerHeight);
-    }, { passive: true });
-}
 
 // ---- Init All ----
 document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
+    createConfetti();
     initNavbar();
     initMobileMenu();
     initScrollReveal();
     initRipple();
-    initRangeSliders();
-    initQtyControls();
-    initDashSidebar();
-    initDashTabs();
-    initFilterToggle();
     initTestimonialCarousel();
     initGallery();
     initWorksCarousel();
     initHeroCollage();
-    initCheckboxes();
     initPageTransition();
-    initStickyBook();
 
     // Page entrance animation
     document.body.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
