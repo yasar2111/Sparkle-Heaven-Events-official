@@ -1433,6 +1433,230 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') prevLightbox(); if (e.key === 'ArrowRight') nextLightbox(); });
     document.getElementById('glightbox').addEventListener('click', function (e) { if (e.target === this) closeLightbox(); });
   </script>
+
+  <!-- ==============================
+       LEAD CAPTURE POPUP (30-sec trigger)
+       ============================== -->
+  <div id="lead-popup" aria-modal="true" role="dialog" aria-label="Get a Free Quote" style="
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    padding: 0 16px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.55s cubic-bezier(0.16,1,0.3,1);
+  ">
+    <div style="
+      background: white;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.22), 0 0 0 1px rgba(212,175,55,0.12);
+      padding: 28px 28px 24px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      pointer-events: all;
+      border-top: 4px solid;
+      border-image: linear-gradient(90deg,#D4AF37,#C62828) 1;
+    ">
+
+      <!-- Close button -->
+      <button id="lead-popup-close" aria-label="Close" style="
+        position: absolute;
+        top: 12px; right: 14px;
+        width: 30px; height: 30px;
+        border-radius: 50%;
+        border: 1.5px solid #e5e7eb;
+        background: white;
+        cursor: pointer;
+        font-size: 16px;
+        color: #6b7280;
+        display: flex; align-items: center; justify-content: center;
+        transition: background 0.15s, color 0.15s;
+        line-height: 1;
+      " onmouseover="this.style.background='#fee2e2';this.style.color='#C62828'"
+        onmouseout="this.style.background='white';this.style.color='#6b7280'">✕</button>
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+        <div style="
+          width:38px;height:38px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:18px;
+          background:linear-gradient(135deg,#D4AF37,#C62828);
+        ">🎉</div>
+        <div>
+          <p
+            style="font-family:'Poppins',sans-serif;font-weight:800;font-size:17px;color:#1f2937;margin:0;line-height:1.2;">
+            Planning Your Dream Event?
+          </p>
+          <p style="font-size:13px;color:#6b7280;margin:2px 0 0;">We'll call you back within 30 minutes!</p>
+        </div>
+      </div>
+
+      <!-- No-spam assurance -->
+      <p style="
+        font-size:12px;color:#6b7280;
+        background:#f9fafb;border-radius:8px;
+        padding:8px 12px;margin:12px 0 16px;
+        border-left:3px solid #D4AF37;
+        line-height:1.5;
+      ">🔒 <strong>We respect your privacy.</strong> We'll never share your details or send you unwanted messages. Just
+        a friendly call to help plan your event.</p>
+
+      <!-- Form -->
+      <form id="lead-form" action="https://formsubmit.co/subash27081999@gmail.com" method="POST" novalidate
+        style="display:flex;flex-direction:column;gap:12px;">
+        <input type="hidden" name="_subject" value="⚡ Quick Inquiry — SparkleHeaven Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_cc" value="mohamedyasar2111@gmail.com">
+        <input type="hidden" name="_next" id="lead-next-url" value="">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <!-- Name -->
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:5px;">
+            Your Name <span style="color:#C62828">*</span>
+          </label>
+          <input id="lp-name" type="text" name="name" placeholder="e.g. Mohamed Yasar" maxlength="80"
+            style="width:100%;padding:10px 14px;border-radius:10px;border:1.5px solid #e5e7eb;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:#fafafa;"
+            onfocus="this.style.borderColor='#D4AF37';this.style.boxShadow='0 0 0 3px rgba(212,175,55,0.15)';this.style.background='#fff'"
+            onblur="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'">
+          <p id="lp-name-err" style="display:none;color:#ef4444;font-size:12px;margin-top:4px;">Please enter your name.
+          </p>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:5px;">
+            Phone Number <span style="color:#C62828">*</span>
+          </label>
+          <div style="display:flex;">
+            <span
+              style="padding:10px 12px;background:#f3f4f6;border:1.5px solid #e5e7eb;border-right:none;border-radius:10px 0 0 10px;font-size:14px;font-weight:600;color:#374151;white-space:nowrap;">🇮🇳
+              +91</span>
+            <input id="lp-phone" type="tel" name="phone" placeholder="95007 50609" maxlength="10"
+              oninput="this.value=this.value.replace(/\D/g,'')"
+              style="flex:1;padding:10px 14px;border-radius:0 10px 10px 0;border:1.5px solid #e5e7eb;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:#fafafa;"
+              onfocus="this.style.borderColor='#D4AF37';this.style.boxShadow='0 0 0 3px rgba(212,175,55,0.15)';this.style.background='#fff'"
+              onblur="this.style.borderColor='#e5e7eb';this.style.boxShadow='none'">
+          </div>
+          <p id="lp-phone-err" style="display:none;color:#ef4444;font-size:12px;margin-top:4px;">Please enter a valid
+            10-digit number.</p>
+        </div>
+
+        <!-- Event Type -->
+        <div>
+          <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:5px;">Event
+            Type</label>
+          <select name="event_type"
+            style="width:100%;padding:10px 14px;border-radius:10px;border:1.5px solid #e5e7eb;font-size:14px;font-family:'Inter',sans-serif;outline:none;background:#fafafa;color:#374151;cursor:pointer;transition:border-color 0.2s;"
+            onfocus="this.style.borderColor='#D4AF37'" onblur="this.style.borderColor='#e5e7eb'">
+            <option value="">Select (optional)</option>
+            <option value="Wedding / Reception">💍 Wedding / Reception</option>
+            <option value="Engagement">💑 Engagement</option>
+            <option value="Birthday Party">🎂 Birthday Party</option>
+            <option value="Baby Shower">🍼 Baby Shower</option>
+            <option value="Corporate Event">💼 Corporate Event</option>
+            <option value="Traditional Function">🪔 Traditional Function</option>
+            <option value="Other">✨ Other</option>
+          </select>
+        </div>
+
+        <!-- Submit -->
+        <button id="lead-submit-btn" type="submit" style="
+          width:100%;padding:12px;border-radius:10px;border:none;cursor:pointer;
+          background:linear-gradient(135deg,#D4AF37,#C62828);
+          color:white;font-weight:700;font-size:15px;font-family:'Poppins',sans-serif;
+          box-shadow:0 6px 20px rgba(212,175,55,0.35);
+          transition:transform 0.18s, box-shadow 0.18s;
+          display:flex;align-items:center;justify-content:center;gap:8px;
+        " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 28px rgba(212,175,55,0.5)'"
+          onmouseout="this.style.transform='none';this.style.boxShadow='0 6px 20px rgba(212,175,55,0.35)'">
+          <span id="lead-btn-text">Get a Free Callback 📞</span>
+          <span id="lead-btn-spinner"
+            style="display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,0.35);border-top-color:#fff;border-radius:50%;animation:lp-spin 0.7s linear infinite;"></span>
+        </button>
+
+        <p style="text-align:center;font-size:11px;color:#9ca3af;margin-top:-4px;">
+          🔒 100% confidential · No spam · No unwanted calls
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    @keyframes lp-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <script>
+    // ── Lead Popup Logic ─────────────────────────────────────────────────────
+    (function () {
+      // Don't show if already seen this session
+      if (sessionStorage.getItem('lp_seen')) return;
+
+      var popup = document.getElementById('lead-popup');
+      var closeBtn = document.getElementById('lead-popup-close');
+      var form = document.getElementById('lead-form');
+
+      // Set absolute redirect URL
+      document.getElementById('lead-next-url').value = window.location.origin + '/thanks.html';
+
+      function showPopup() {
+        popup.style.display = 'flex';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            popup.style.opacity = '1';
+            popup.style.transform = 'translateY(0)';
+          });
+        });
+        sessionStorage.setItem('lp_seen', '1');
+      }
+
+      function hidePopup() {
+        popup.style.opacity = '0';
+        popup.style.transform = 'translateY(-100%)';
+        setTimeout(function () { popup.style.display = 'none'; }, 500);
+      }
+
+      // Show after 30 seconds
+      setTimeout(showPopup, 30000);
+
+      // Close button
+      closeBtn.addEventListener('click', hidePopup);
+
+      // Form submission with validation
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var valid = true;
+
+        var name = document.getElementById('lp-name').value.trim();
+        var nameErr = document.getElementById('lp-name-err');
+        if (name.length < 2) { nameErr.style.display = 'block'; valid = false; }
+        else { nameErr.style.display = 'none'; }
+
+        var phone = document.getElementById('lp-phone').value.trim();
+        var phoneErr = document.getElementById('lp-phone-err');
+        if (!/^[6-9]\d{9}$/.test(phone)) { phoneErr.style.display = 'block'; valid = false; }
+        else { phoneErr.style.display = 'none'; }
+
+        if (!valid) return;
+
+        // Show loading
+        document.getElementById('lead-btn-text').textContent = 'Sending…';
+        document.getElementById('lead-btn-spinner').style.display = 'inline-block';
+        document.getElementById('lead-submit-btn').disabled = true;
+
+        form.submit();
+      });
+    })();
+  </script>
+
 </body>
 
 </html>
