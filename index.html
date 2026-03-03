@@ -1609,7 +1609,11 @@
   <script>
     // ── Lead Popup Logic ─────────────────────────────────────────────────────
     (function () {
-      if (sessionStorage.getItem('lp_seen')) return;
+      // Show max once every 24 hours (localStorage with timestamp)
+      var POPUP_KEY = 'lp_shown_at';
+      var now = Date.now();
+      var shownAt = parseInt(localStorage.getItem(POPUP_KEY) || '0', 10);
+      if (now - shownAt < 24 * 60 * 60 * 1000) return; // shown in last 24h → skip
 
       var overlay = document.getElementById('lead-overlay');
       var popup = document.getElementById('lead-popup');
@@ -1621,7 +1625,7 @@
       function showPopup() {
         overlay.style.display = 'block';
         popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // lock scroll
+        document.body.style.overflow = 'hidden';
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             overlay.style.opacity = '1';
@@ -1629,27 +1633,27 @@
             popup.style.transform = 'translateY(0)';
           });
         });
-        sessionStorage.setItem('lp_seen', '1');
+        localStorage.setItem(POPUP_KEY, String(Date.now()));
       }
 
       function hidePopup() {
         overlay.style.opacity = '0';
         popup.style.opacity = '0';
         popup.style.transform = 'translateY(-110%)';
-        document.body.style.overflow = ''; // restore scroll
+        document.body.style.overflow = '';
         setTimeout(function () {
           overlay.style.display = 'none';
           popup.style.display = 'none';
         }, 500);
       }
 
-      // Trigger after 30 seconds
+      // Show after 30 seconds
       setTimeout(showPopup, 30000);
 
-      // Only X button closes — backdrop click does NOT dismiss
+      // Only X button closes
       closeBtn.addEventListener('click', hidePopup);
 
-      // Press Escape to close
+      // Escape key also closes
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && overlay.style.display === 'block') hidePopup();
       });
