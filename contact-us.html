@@ -232,7 +232,7 @@
                                 <input type="hidden" name="_captcha" value="false">
                                 <input type="hidden" name="_template" value="table">
                                 <input type="hidden" name="_cc" value="mohamedyasar2111@gmail.com">
-                                <input type="hidden" name="_next" value="thanks.html">
+                                <input type="hidden" name="_next" id="next-url" value="">
 
                                 <!-- Honeypot (anti-spam) -->
                                 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -322,6 +322,9 @@
     </div>
 
     <script>
+        // ── Set absolute redirect URL for FormSubmit ──────────────────────────────
+        document.getElementById('next-url').value = window.location.origin + '/thanks.html';
+
         // ── char counter ─────────────────────────────────────────────────────────
         const msg = document.getElementById('message');
         const ctr = document.getElementById('char-count');
