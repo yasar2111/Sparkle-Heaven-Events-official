@@ -1625,7 +1625,7 @@
       function showPopup() {
         overlay.style.display = 'block';
         popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('scroll-locked');
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             overlay.style.opacity = '1';
@@ -1640,7 +1640,7 @@
         overlay.style.opacity = '0';
         popup.style.opacity = '0';
         popup.style.transform = 'translateY(-110%)';
-        document.body.style.overflow = '';
+        document.body.classList.remove('scroll-locked');
         setTimeout(function () {
           overlay.style.display = 'none';
           popup.style.display = 'none';

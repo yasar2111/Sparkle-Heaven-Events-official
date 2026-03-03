@@ -48,11 +48,11 @@ function initMobileMenu() {
 
     const open = () => {
         menu.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('scroll-locked');
     };
     const close = () => {
         menu.classList.remove('open');
-        document.body.style.overflow = '';
+        document.body.classList.remove('scroll-locked');
     };
 
     if (openBtn) openBtn.addEventListener('click', open);

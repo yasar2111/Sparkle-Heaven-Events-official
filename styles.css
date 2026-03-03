@@ -1156,7 +1156,7 @@ h1 {
 #mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 999;
+  z-index: 10000;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-med);
@@ -1190,6 +1190,13 @@ h1 {
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(2px);
+}
+
+/* ---- iOS Safari scroll lock (used by popup + mobile menu) ---- */
+body.scroll-locked {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* ---- Ticket Quantity ---- */
