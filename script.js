@@ -99,7 +99,7 @@ function showToast(message, type = 'info', duration = 3200) {
         document.body.appendChild(container);
     }
 
-    const icons = { success: '✅', error: '❌', info: 'ℹ️', warning: '⚠️' };
+    const icons = { success: '✓', error: '✗', info: 'i', warning: '!' };
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
     toast.innerHTML = `<span style="font-size:18px">${icons[type]}</span><span>${message}</span>
@@ -345,7 +345,7 @@ function initPageTransition() {
 
 // ---- Init All ----
 document.addEventListener('DOMContentLoaded', () => {
-    createConfetti();
+    // createConfetti(); // Disabled for professional theme
     initNavbar();
     initMobileMenu();
     initScrollReveal();

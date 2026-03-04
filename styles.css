@@ -1989,12 +1989,132 @@ input[type="range"]::-webkit-slider-thumb {
 
 @media (max-width: 1023px) {
   .service-tab {
-    min-width: 240px;
+    min-width: 220px;
   }
 
   .service-tab:hover,
   .service-tab.active {
     transform: none;
+  }
+
+  /* On mobile, always show the "View Details" text on service offering cards */
+  .service-offer-card .service-offer-title {
+    transform: none !important;
+  }
+
+  .service-offer-card .service-offer-view {
+    opacity: 1 !important;
+  }
+}
+
+/* ---- Service Offering Cards (the big image grid below tabs) ---- */
+.service-offer-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+  display: block;
+  background: #111;
+}
+
+.service-offer-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.service-offer-card:hover img {
+  transform: scale(1.1);
+}
+
+.service-offer-card .service-offer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.35) 50%, transparent 100%);
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+}
+
+.service-offer-card:hover .service-offer-overlay {
+  opacity: 0.92;
+}
+
+.service-offer-card .service-offer-info {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.4s ease;
+  transform: translateY(4px);
+}
+
+.service-offer-card:hover .service-offer-info {
+  transform: translateY(0);
+}
+
+.service-offer-card .service-offer-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.service-offer-card .service-offer-view {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.1s;
+}
+
+.service-offer-card:hover .service-offer-view {
+  opacity: 1;
+}
+
+/* On touch devices (mobile), always show title clearly and view details */
+@media (hover: none) {
+  .service-offer-card .service-offer-info {
+    transform: none !important;
+  }
+
+  .service-offer-card .service-offer-view {
+    opacity: 1 !important;
+  }
+
+  .service-offer-card .service-offer-overlay {
+    opacity: 0.75 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-offer-card .service-offer-title {
+    font-size: 1.25rem;
+  }
+
+  .service-offer-card .service-offer-info {
+    padding: 20px 18px;
+    transform: none;
+  }
+
+  .service-offer-card .service-offer-view {
+    opacity: 1;
+    font-size: 13px;
+  }
+
+  /* Service card aspect ratio on mobile - less tall */
+  .service-offers-grid .service-offer-card {
+    aspect-ratio: 4/3;
   }
 }
 
@@ -2066,6 +2186,16 @@ body {
   .grid.md\:grid-cols-3,
   .grid.sm\:grid-cols-2 {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Service tab panel inner grid - keep 2 cols but smaller text */
+  .service-panel .grid.grid-cols-2 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .service-panel .grid.grid-cols-2>div {
+    font-size: 12px !important;
   }
 
   /* Fix columns utility on mobile */
