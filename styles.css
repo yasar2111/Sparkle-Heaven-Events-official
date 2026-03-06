@@ -2181,10 +2181,10 @@ body {
     padding: 28px 16px !important;
   }
 
-  /* Grid in service pages: force single column */
-  .grid.md\:grid-cols-2,
-  .grid.md\:grid-cols-3,
-  .grid.sm\:grid-cols-2 {
+  /* Grid in service pages: force single column (but NOT the homepage service offerings grid) */
+  .grid.md\:grid-cols-2:not(.stagger),
+  .grid.md\:grid-cols-3:not(.stagger),
+  .grid.sm\:grid-cols-2:not(.stagger) {
     grid-template-columns: 1fr !important;
   }
 
@@ -2243,5 +2243,98 @@ body {
 
   p.text-lg {
     font-size: 0.95rem !important;
+  }
+}
+
+/* =============================================
+   MOBILE — HERO CAROUSEL & SERVICE GRID FIXES
+   ============================================= */
+
+/* ---- Hero Carousel: reduce height on mobile ---- */
+@media (max-width: 768px) {
+
+  /* Carousel slide cards: limit height so they don't fill the whole screen */
+  .snap-center.shrink-0[class*="h-[60vh]"],
+  .snap-center.shrink-0 {
+    height: 55vw !important;
+    min-height: 220px !important;
+    max-height: 300px !important;
+  }
+
+  /* Caption inside hero slide: smaller padding, hide description text */
+  .snap-center.shrink-0 .glass {
+    padding: 12px 14px !important;
+  }
+
+  .snap-center.shrink-0 .glass p {
+    display: none;
+  }
+
+  .snap-center.shrink-0 .glass h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Swipe hint text: smaller */
+  .animate-pulse span {
+    font-size: 11px !important;
+  }
+}
+
+/* ---- Service Offering Grid: 2 columns on mobile ---- */
+@media (max-width: 640px) {
+
+  /* Override the forced 1-column rule for the service offerings grid specifically */
+  .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3.stagger {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+/* ---- Service Offering Cards: always show text on touch/mobile ---- */
+/* On hover-capable desktops the Tailwind group-hover classes handle everything.
+   On touch devices there's no hover state, so titles stay shifted (translate-y-4)
+   and "View Details" stays opacity-0 forever. Fix with @media (hover: none). */
+
+@media (hover: none),
+(max-width: 768px) {
+
+  /* Card info panel: remove the downward shift so text is always visible */
+  .group .absolute.inset-0.p-8.flex.flex-col.justify-end,
+  .group [class*="translate-y-4"] {
+    transform: translateY(0) !important;
+  }
+
+  /* "View Details" row: always visible */
+  .group [class*="opacity-0"] {
+    opacity: 1 !important;
+  }
+
+  /* Gradient overlay: slightly stronger so text pops on small screens */
+  .group .absolute.inset-0[class*="bg-gradient-to-t"] {
+    opacity: 0.92 !important;
+  }
+
+  /* Card text sizing for small screens */
+  .group .absolute.inset-0.p-8.flex h3 {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .group .absolute.inset-0.p-8.flex>div[class*="text-\[var"] {
+    font-size: 12px !important;
+    gap: 4px !important;
+  }
+
+  /* Reduce excessive inner padding on very small cards */
+  .group .absolute.inset-0.p-8.flex {
+    padding: 14px !important;
+  }
+
+  /* Aspect ratio: prevent the 4/5 ratio from being too tall on mobile.
+     Set a fixed height instead so 2-column layout is compact */
+  .grid .group.aspect-\[4\/5\],
+  .grid .group[class*="aspect-[4/5]"] {
+    aspect-ratio: 3 / 4 !important;
   }
 }
