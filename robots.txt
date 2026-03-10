@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow thank-you page (form confirmation — not useful for search results)
+Disallow: /thanks.html
+
+# Sitemap location
+Sitemap: https://sparklehaven.in/sitemap.xml
