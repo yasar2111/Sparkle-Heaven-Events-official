@@ -1636,7 +1636,7 @@
       var POPUP_KEY = 'lp_shown_at';
       var now = Date.now();
       var shownAt = parseInt(localStorage.getItem(POPUP_KEY) || '0', 10);
-      if (now - shownAt < 24 * 60 * 60 * 1000) return; // shown in last 24h → skip
+      if (now - shownAt < 3 * 24 * 60 * 60 * 1000) return; // shown in last 3 days → skip
 
       var overlay = document.getElementById('lead-overlay');
       var popup = document.getElementById('lead-popup');
@@ -1670,8 +1670,8 @@
         }, 500);
       }
 
-      // Show after 30 seconds
-      setTimeout(showPopup, 30000);
+      // Show after 5 seconds
+      setTimeout(showPopup, 5000);
 
       // Only X button closes
       closeBtn.addEventListener('click', hidePopup);
