@@ -2338,3 +2338,40 @@ body {
     aspect-ratio: 3 / 4 !important;
   }
 }
+
+/* =============================================
+   GLOBAL FONT COLOR FIXES - Darker, More Readable
+   ============================================= */
+
+/* Body text */
+body { color: #1f2937; }
+
+/* All paragraph text */
+p { color: #374151; }
+
+/* Tailwind overrides */
+.text-gray-600 { color: #374151 !important; }
+.text-gray-500 { color: #4b5563 !important; }
+.text-gray-400 { color: #6b7280 !important; }
+.text-gray-700 { color: #1f2937 !important; }
+
+/* Section subtitle */
+.section-sub { color: #374151 !important; font-weight: 500; }
+
+/* Service panel text */
+.service-panel p { color: #1f2937 !important; font-weight: 500; }
+.service-panel .grid > div { color: #1f2937 !important; font-weight: 500; }
+
+/* Footer text */
+footer { color: #374151; }
+footer p, footer li, footer span { color: #4b5563 !important; font-weight: 500; }
+footer a { color: #374151 !important; font-weight: 500; }
+footer a:hover { color: var(--primary) !important; }
+footer h3, footer h4, footer .font-semibold, footer .uppercase { color: #111827 !important; font-weight: 700 !important; }
+footer .text-gray-400 { color: #4b5563 !important; }
+
+/* Card text */
+.card-glass p, .card-glass li { color: #374151 !important; }
+
+/* Labels */
+label { color: #1f2937; font-weight: 600; }
