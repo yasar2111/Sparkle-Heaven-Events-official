@@ -94,6 +94,19 @@
     ]
   }
   </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparklehaven.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://sparklehaven.in/#services" },
+      { "@type": "ListItem", "position": 3, "name": "Catering Services", "item": "https://sparklehaven.in/catering.html" }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-hero-gradient min-h-screen font-['Inter'] text-gray-800">
@@ -120,6 +133,17 @@
         </header>
 
         <main class="flex-grow">
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-1">
+              <ol class="flex flex-wrap items-center gap-1 text-xs text-gray-500 font-medium">
+                <li><a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a></li>
+                <li class="text-gray-300 mx-1" aria-hidden="true">/</li>
+                <li><a href="index.html#services" class="hover:text-[var(--primary)] transition-colors">Services</a></li>
+                <li class="text-gray-300 mx-1" aria-hidden="true">/</li>
+                <li class="text-[var(--primary)] font-semibold" aria-current="page">Catering Services</li>
+              </ol>
+            </nav>
+
             <!-- HERO -->
             <section class="relative pt-16 pb-12 overflow-hidden bg-white/20">
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -127,7 +151,7 @@
                     <!-- Featured Image -->
                     <div
                         class="relative w-40 h-40 md:w-56 md:h-56 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl border-4 border-white group">
-                        <img src="service_images/catering.jfif" alt="Sparkle Heaven Catering Services in Madurai"
+                        <img src="service_images/catering.jfif" alt="SparkleHeaven professional catering services - veg and non-veg wedding catering in Madurai"
                             class="w-full h-full object-cover relative z-10 transition-transform duration-700 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-black/10 z-20 transition-opacity duration-300 group-hover:opacity-0">
@@ -485,7 +509,45 @@
                     </div>
                 </div>
             </section>
-        </main>
+        
+        <!-- Related Services — Internal Linking -->
+        <section class="py-12 bg-white/10">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-gray-900 text-center mb-6" style="font-family:'Poppins',sans-serif;">Complete Your Wedding with Our Other Services</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <a href="stage-decoration.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Stage Decoration</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Stunning mandap & stage setups</p>
+                    </div>
+                  </a>
+                  <a href="photography.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Photography & Video</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Capture every beautiful moment</p>
+                    </div>
+                  </a>
+                  <a href="garlands.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Wedding Garlands</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Fresh & artificial flower maalai</p>
+                    </div>
+                  </a>
+                  <a href="welcome-girls.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Welcome Girls</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Traditional welcoming for your guests</p>
+                    </div>
+                  </a>
+
+            </div>
+          </div>
+        </section>
+      </main>
 
         <!-- FOOTER -->
         <footer

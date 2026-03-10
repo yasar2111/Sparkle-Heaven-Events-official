@@ -35,6 +35,19 @@
             }
         }
     </script>
+
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sparklehaven.in/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://sparklehaven.in/#services" },
+      { "@type": "ListItem", "position": 3, "name": "Welcome Dancers", "item": "https://sparklehaven.in/welcome-dancers.html" }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-hero-gradient min-h-screen font-['Inter'] text-gray-800">
@@ -61,6 +74,17 @@
         </header>
 
         <main class="flex-grow">
+            <!-- Breadcrumb Navigation -->
+            <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-1">
+              <ol class="flex flex-wrap items-center gap-1 text-xs text-gray-500 font-medium">
+                <li><a href="index.html" class="hover:text-[var(--primary)] transition-colors">Home</a></li>
+                <li class="text-gray-300 mx-1" aria-hidden="true">/</li>
+                <li><a href="index.html#services" class="hover:text-[var(--primary)] transition-colors">Services</a></li>
+                <li class="text-gray-300 mx-1" aria-hidden="true">/</li>
+                <li class="text-[var(--primary)] font-semibold" aria-current="page">Welcome Dancers</li>
+              </ol>
+            </nav>
+
             <!-- HERO -->
             <section class="relative pt-16 pb-12 overflow-hidden bg-white/20">
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -335,7 +359,45 @@
                     </div>
                 </div>
             </section>
-        </main>
+        
+        <!-- Related Services — Internal Linking -->
+        <section class="py-12 bg-white/10">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-xl font-bold text-gray-900 text-center mb-6" style="font-family:'Poppins',sans-serif;">More Entertainment for Your Celebration</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <a href="welcome-girls.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Welcome Girls</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Traditional welcoming staff</p>
+                    </div>
+                  </a>
+                  <a href="chendamelam.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Chenda Melam</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Traditional percussion ensemble</p>
+                    </div>
+                  </a>
+                  <a href="dhol.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">Dhol Services</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Energetic Nashik dhol performances</p>
+                    </div>
+                  </a>
+                  <a href="dj.html" class="card-glass p-4 flex items-start gap-3 group hover:scale-[1.02] transition-transform duration-200 border border-white/40">
+                    <div class="w-8 h-8 rounded-lg flex-shrink-0 flex items-center justify-center text-white text-xs font-bold" style="background:linear-gradient(135deg,var(--primary),var(--accent));">★</div>
+                    <div>
+                      <p class="font-bold text-gray-900 text-sm group-hover:text-[var(--accent)] transition-colors">DJ Services</p>
+                      <p class="text-xs text-gray-500 mt-0.5">Music for the reception party</p>
+                    </div>
+                  </a>
+
+            </div>
+          </div>
+        </section>
+      </main>
 
         <!-- FOOTER -->
         <footer
