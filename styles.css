@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    SPARKLE HEAVEN - Event Management Platform
    Custom Styles + Tailwind Overrides
    ============================================ */
@@ -12,19 +12,19 @@
   --radius-lg: 24px;
   --radius-xl: 32px;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.10);
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
-  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.30);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.15);
 
   --primary: #D4AF37;
   --primary-dark: #B8941F;
   --primary-light: #E8C547;
-  --accent: #C62828;
-  --accent-light: #EF5350;
+  --accent: #1e293b;
+  --accent-light: #475569;
 
-  --glass-bg: rgba(255, 255, 255, 0.70);
-  --glass-border: rgba(255, 255, 255, 0.40);
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(0, 0, 0, 0.06);
 
   --transition-fast: 0.18s ease;
   --transition-med: 0.30s ease;
@@ -65,8 +65,8 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  background: #fffdf5;
-  color: #2d1810;
+  background: #ffffff;
+  color: #1e293b;
   transition: background var(--transition-med), color var(--transition-med);
 }
 
@@ -91,12 +91,12 @@ h5 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: #cbd5e1;
   border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: #94a3b8;
 }
 
 /* ---- Confetti Particles ---- */
@@ -194,14 +194,14 @@ h1 {
 
 /* ---- Gradient Text ---- */
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-2 {
-  background: linear-gradient(135deg, #E8C547 0%, var(--primary) 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #1e293b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -209,7 +209,7 @@ h1 {
 
 /* ---- Gradient Backgrounds ---- */
 .bg-hero-gradient {
-  background: linear-gradient(135deg, #fffdf5 0%, #fef3c7 40%, #fde2e2 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
 }
 
 .bg-primary-gradient {
@@ -254,7 +254,7 @@ h1 {
 }
 
 .orb-pink {
-  background: radial-gradient(circle, #C62828, #B71C1C);
+  background: radial-gradient(circle, #1e293b, #0f172a);
   animation-delay: -3s;
 }
 
@@ -323,12 +323,12 @@ h1 {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   color: white;
-  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.40);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.20);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 32px rgba(212, 175, 55, 0.55);
+  box-shadow: 0 10px 32px rgba(212, 175, 55, 0.25);
 }
 
 .btn-secondary {
@@ -402,18 +402,19 @@ h1 {
 }
 
 .card-glass {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-med);
 }
 
 .card-glass:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
 }
 
 /* ---- Event Cards ---- */
@@ -469,7 +470,7 @@ h1 {
 
 .badge-accent {
   background: rgba(198, 40, 40, 0.12);
-  color: #C62828;
+  color: #1e293b;
 }
 
 .badge-success {
@@ -532,7 +533,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(212, 175, 55, 0.12);
+  background: #f8fafc;
   color: var(--primary-dark);
   padding: 6px 16px;
   border-radius: 99px;
@@ -541,6 +542,7 @@ h1 {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 16px;
+  border: 1px solid #e2e8f0;
 }
 
 .section-heading {
@@ -900,7 +902,7 @@ h1 {
 }
 
 .pricing-card.featured {
-  background: linear-gradient(135deg, #D4AF37 0%, #C62828 100%);
+  background: linear-gradient(135deg, #D4AF37 0%, #1e293b 100%);
   border-color: transparent;
   color: white;
   transform: scale(1.04);
@@ -1020,7 +1022,7 @@ h1 {
 }
 
 .sidebar-link.active {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(198, 40, 40, 0.10));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(30, 41, 59, 0.06));
   color: var(--primary-dark);
   font-weight: 600;
 }
@@ -1951,7 +1953,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .service-tab.active {
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(198, 40, 40, 0.08));
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(30, 41, 59, 0.05));
   border-color: var(--primary);
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
   transform: translateX(6px);
