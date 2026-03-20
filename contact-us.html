@@ -343,7 +343,12 @@ dbody class="bg-hero-gradient min-h-screen font-['Inter'] text-gray-800">
 
     dscript>
         // ── Set absolute redirect URL for FormSubmit ──────────────────────────────
-        document.getElementById('next-url').value = window.location.origin + '/thanks.html';
+        (function() {
+            var origin = window.location.origin;
+            // Fallback to production URL if origin is not available (e.g. file:// protocol)
+            if (!origin || origin === 'null') origin = 'https://sparklehaven.in';
+            document.getElementById('next-url').value = origin + '/thanks.html';
+        })();
 
         // ── char counter ─────────────────────────────────────────────────────────
         const msg = document.getElementById('message');

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ============================================
  * SPARKLE HEAVEN - Event Management Platform
  * Shared JavaScript: Celebrations, Animations,
@@ -331,7 +331,7 @@ function initWorksCarousel() {
 function initPageTransition() {
     document.querySelectorAll('a[href]').forEach(a => {
         const href = a.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+        if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
         a.addEventListener('click', e => {
             e.preventDefault();
             document.body.style.opacity = '0';
@@ -339,6 +339,13 @@ function initPageTransition() {
             document.body.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
             setTimeout(() => window.location.href = href, 260);
         });
+    });
+
+    // Fix blank page on browser back button (bfcache restores opacity:0)
+    window.addEventListener('pageshow', () => {
+        document.body.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+        document.body.style.opacity = '1';
+        document.body.style.transform = 'translateY(0)';
     });
 }
 
