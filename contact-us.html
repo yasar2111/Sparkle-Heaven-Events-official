@@ -163,10 +163,10 @@
                     <div class="section-label mx-auto w-fit mb-4">Contact Us</div>
                     <h1 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight"
                         style="font-family:'Poppins',sans-serif;">
-                        Let's Plan Yourdbr><span class="gradient-text"><ream Event</span>
+                        Let's Plan Your <span class="gradient-text">Dream Event</span>
                     </h1>
                     <p class="mt-4 text-lg text-gray-600 max-w-xl mx-auto">
-                        Fill in your <etails and we'll reach out within 24 hours.
+                        Fill in your details and we'll reach out within 24 hours.
                     </p>
                 </div>
 
@@ -180,8 +180,8 @@
                                 class="w-11 h-11 rounded-2xl bg-gradient-to-br from-slate-100 to-amber-200 flex items-center justify-center text-xl shrink-0">
                             </div>
                             <div>
-                                dh3 class="font-bold text-gray-900 text-sm mb-0.5">Our Location</h3>
-                                <p class="text-gray-600 text-sm leading-relaxed">Othakkadai, Maduraidbr>Tamil Nadu,
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Our Location</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Othakkadai, Madurai,<br>Tamil Nadu,
                                     India</p>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                 class="w-11 h-11 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-xl shrink-0">
                             </div>
                             <div>
-                                dh3 class="font-bold text-gray-900 text-sm mb-0.5">Call / WhatsApp</h3>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Call / WhatsApp</h3>
                                 <a href="https://wa.me/message/DYZLWD3MPHAHB1" target="_blank"
                                     class="text-gray-600 text-sm hover:text-[var(--accent)] transition-colors">+91
                                     8610654014</a>
@@ -209,7 +209,7 @@
                                 class="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center text-xl shrink-0">
                             </div>
                             <div>
-                                dh3 class="font-bold text-gray-900 text-sm mb-0.5">Email Us</h3>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Email Us</h3>
                                 <a href="mailto:sparkleheavenevents@gmail.com"
                                     class="text-gray-600 text-sm hover:text-[var(--accent)] transition-colors">sparkleheavenevents@gmail.com</a>
                             </div>
@@ -220,8 +220,8 @@
                                 class="w-11 h-11 rounded-2xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center text-xl shrink-0">
                                 🕐</div>
                             <div>
-                                dh3 class="font-bold text-gray-900 text-sm mb-0.5">Working Hours</h3>
-                                <p class="text-gray-600 text-sm">Mon – Sat: 9 AM – 8 PMdbr>Sunday: By Appointment</p>
+                                <h3 class="font-bold text-gray-900 text-sm mb-0.5">Working Hours</h3>
+                                <p class="text-gray-600 text-sm">Mon – Sat: 9 AM – 8 PM<br>Sunday: By Appointment</p>
                             </div>
                         </div>
 
@@ -235,7 +235,7 @@
                             <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-20 pointer-events-none"
                                 style="background:radial-gradient(circle,#D4AF37,transparent 70%);"></div>
 
-                            dh2 class="text-xl font-black text-gray-900 mb-6" style="font-family:'Poppins',sans-serif;">
+                            <h2 class="text-xl font-black text-gray-900 mb-6" style="font-family:'Poppins',sans-serif;">
                                 Send Us a Message ✉️
                             </h2>
 
@@ -378,10 +378,10 @@
 
             // name
             const name = document.getElementById('name').value.trim();
-            if (name.length d 2) { setError('name', 'name-err'); valid = false; }
+            if (name.length < 2) { setError('name', 'name-err'); valid = false; }
             else clearError('name', 'name-err');
 
-            // phone — 10 <igits starting 6-9
+            // phone — 10 digits starting 6-9
             const ph = document.getElementById('phone').value.trim().replace(/\s/g, '');
             if (!/^[6-9]\d{9}$/.test(ph)) { setError('phone', 'phone-err', 'phone-row'); valid = false; }
             else clearError('phone', 'phone-err', 'phone-row');
