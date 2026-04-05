@@ -99,7 +99,7 @@ function showToast(message, type = 'info', duration = 3200) {
         document.body.appendChild(container);
     }
 
-    const icons = { success: 'âœ“', error: 'âœ—', info: 'i', warning: '!' };
+    const icons = { success: '✓', error: '✗', info: 'i', warning: '!' };
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
     toast.innerHTML = `<span style="font-size:18px">${icons[type]}</span><span>${message}</span>
