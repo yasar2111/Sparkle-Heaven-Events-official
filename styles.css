@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    SPARKLE HEAVEN - Event Management Platform
    Custom Styles + Tailwind Overrides
    ============================================ */
@@ -2431,7 +2431,7 @@ footer .text-gray-400 {
 /* Card text */
 .card-glass p,
 .card-glass li {
-  color: #374151 !important;
+  color: #374151;
 }
 
 /* Labels */
@@ -2439,3 +2439,36 @@ label {
   color: #1f2937;
   font-weight: 600;
 }
+
+/* ---- CTA Banner Visibility Fix ---- */
+.cta-banner,
+.cta-banner h1,
+.cta-banner h2,
+.cta-banner h3,
+.cta-banner p,
+.cta-banner ul,
+.cta-banner li,
+.cta-banner span,
+.cta-banner strong,
+.cta-banner div:not(.bg-white) {
+  color: #ffffff !important;
+}
+
+/* Ensure the semi-transparent boxes stay light/readable */
+.cta-banner .bg-black\/10,
+.cta-banner .bg-black\/20,
+.cta-banner .bg-black\/30,
+.cta-banner .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* Adjust secondary text colors within CTA */
+.cta-banner .text-rose-200,
+.cta-banner .text-amber-200,
+.cta-banner .text-indigo-200,
+.cta-banner .text-white\/70,
+.cta-banner .text-slate-300 {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
